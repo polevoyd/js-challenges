@@ -1,119 +1,14 @@
 /*-------------------------------------------------------------*/
-function centuryFromYear(year) {
-/* Given a year, return the century it is in. The first century 
- * spans from the year 1 up to and including the year 100, the second - 
- * from the year 101 up to and including the year 200, etc.
 
-Example
-
-For year = 1905, the output should be
-centuryFromYear(year) = 20;
-For year = 1700, the output should be
-centuryFromYear(year) = 17. */
- 
- return year%100 !== 0 ? Math.floor(year/100+1) : year/100;
-
-}
-/*-------------------------------------------------------------*/
-function checkPalindrome(inputString) {
-/* Given the string, check if it is a palindrome.
-
-Example
-
-For inputString = "aabaa", the output should be
-checkPalindrome(inputString) = true;
-For inputString = "abac", the output should be
-checkPalindrome(inputString) = false;
-For inputString = "a", the output should be
-checkPalindrome(inputString) = true. */
-    
-    for (let i = 0; i < inputString.length ; i++)
-            if (inputString[i] !== inputString[inputString.length - 1 - i])
-                    return false;
-
-    return true;
-}
-// shorter one
-function checkPalindrome(inputString) {
-    return inputString == inputString.split('').reverse().join('');
-}
-/*-------------------------------------------------------------*/
-/**
- Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-
-Example:
-
-Given nums = [2, 7, 11, 15], target = 9,
-
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
- */
-let twoSum = function(nums, target) {
-    for (let i = 0; i < nums.length ; i++)
-        {
-            for (let k = 0 ; k < nums.length ; k++)
-                {
-                    if ((nums[i] + nums[k] === target) && (i !== k))
-                        return [i, k];
-                }
-        }
-};
-/*-------------------------------------------------------------*/
-/**
-Given a 32-bit signed integer, reverse digits of an integer.
-
-Example 1:
-
-Input: 123
-Output: 321
-Example 2:
-
-Input: -123
-Output: -321
-Example 3:
-
-Input: 120
-Output: 21
- */
-let reverse = function(x) {
-    
-    let s = x.toString();
-    let r = '';
-    for (let i = s.length - 1; i >= 0  ; i--){
-        r += s[i];
-    }
-    r = (x > 0) ? parseInt(r) : parseInt('-' + r);
-    return ((r > 2147483647) || (r < -2147483648)) ? 0 : r;
-};
 /*-------------------------------------------------------------*/
 
-function differentSquares(matrix) {
-/*
-Given a rectangular matrix containing only digits, 
-calculate the number of different 2 × 2 squares in it.
+/*-------------------------------------------------------------*/
 
-Example
+/*-------------------------------------------------------------*/
 
-For
+/*-------------------------------------------------------------*/
 
-matrix = [[1, 2, 1],
-          [2, 2, 2],
-          [2, 2, 2],
-          [1, 2, 3],
-          [2, 2, 1]]
-the output should be
-differentSquares(matrix) = 6.
-*/
 
-let squares = new Set();
-for (let i = 0; i < matrix.length - 1; i++)
-        for (let k = 0 ; k < matrix[i].length - 1 ; k++)
-                squares.add("s" + matrix[i][k] + matrix[i][k+1] + matrix[i+1][k] + matrix[i+1][k+1]);
-
-    return squares.size;
-}
 /*-------------------------------------------------------------*/
 /*-------------------------------------------------------------*/
 /*-------------------------------------------------------------*/
