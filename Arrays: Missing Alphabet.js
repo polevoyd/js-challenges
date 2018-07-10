@@ -90,5 +90,9 @@ const insertMissingLetters = str => str
       .toUpperCase() : e)
   .join``;  
 */
-
-
+/*
+const insertMissingLetters = (str, charSet = "abcdefghijklmnopqrstuvwxyz") => 
+    [...new Set(str.split(""))]
+        .reduce((p,c) => p.replace(c,c+charSet.slice(charSet.indexOf(c)+1).toUpperCase()),str)
+        .replace(new RegExp("["+str.toUpperCase()+"]","g"),"");
+*/
