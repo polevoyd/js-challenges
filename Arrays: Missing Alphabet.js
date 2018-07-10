@@ -47,37 +47,6 @@ for (let key of firstOcc.keys())
        rt2.push(temp.toUpperCase());
 }
 
-// picking indexes where to insert sequences
-let tempArrayOfIndexes = [];
-for (let index of firstOcc.values())
-{
-    tempArrayOfIndexes.push(index);
-}
 
-// array where we going to insert to
-str = Array.from(str);
-
-// tempArrayOfIndexes-> 0, 1, 2, 4
-// rt2 -> sequence to insert on each of that indexes
-// str -> h, e, l, l, o
-
-// insertion process
-let tmpArray = [];
-let amount = 0;
-
-for (let i = 0; i < str.length; i++)
-{
-  tmpArray.push(str[i]);
-  
-  if (i === tempArrayOfIndexes[amount])
-  {
-      tmpArray.push(rt2[amount]);
-      amount++;
-  }
-}
-
-str = tmpArray.join('');
-  return str;
-}
 
 
