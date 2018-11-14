@@ -169,6 +169,26 @@ class DoublyLinkedList {
       return newList;
     }
   }
+  
+  // remove element by value
+  removeByValue(value) {
+    if (this.length === 0) return null;
+    let current = this.head;
+    while (current){
+      if (current.value === value) {
+        let temp = current;
+        current.prev.next = current.next;
+        current.next.prev = current.prev;
+        current.next = null;
+        current.prev = null;
+        return current.value;
+      }
+      current = current.next;
+    }
+    return null;
+  }
+
+
 }
 
 let list = new DoublyLinkedList();
@@ -194,5 +214,7 @@ list.push(10)
 // list.remove(8)
 // let reversed = list.reverse();
 // reversed.traverse();
+list.removeByValue(5)
+list.traverse();
 
 
