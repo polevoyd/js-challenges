@@ -208,7 +208,6 @@ class DoublyLinkedList {
     }
     return sumList;
   }
-
 }
 
 let list = new DoublyLinkedList();
