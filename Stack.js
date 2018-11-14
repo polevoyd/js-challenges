@@ -37,7 +37,9 @@ class Stack {
     return oldNode.value;
   }
 
-
+  top() {
+    return this.head.value ? this.head.value : null;
+  }
 
 }
 
@@ -52,3 +54,5 @@ stack.push(5)
 stack.pop()
 stack.pop()
 stack.pop()
+
+stack.top()
