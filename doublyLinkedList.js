@@ -188,6 +188,26 @@ class DoublyLinkedList {
     return null;
   }
 
+  // merge two sorted lists
+  merge(list) {
+    if (this.length === 0) {return list;}
+    if (list.length === 0) {return this;}
+
+    let sumList = new DoublyLinkedList();
+    let first = this.head;
+    let second = list.head;
+
+    while (second) {
+      if ((first.value < second.value) && (first.value)) {
+        sumList.push(first.value);
+        first = first.next
+      } else {
+        sumList.push(second.value);
+        second = second.next;
+      }
+    }
+    return sumList;
+  }
 
 }
 
