@@ -154,6 +154,21 @@ class DoublyLinkedList {
     this.length--;
     return oldNode;
   }
+
+  // reverse basic
+  reverse() {
+    if (this.length < 2) {
+      return this;
+    } else {
+      let newList = new DoublyLinkedList();
+      let current = this.head;
+      while (current) {
+        newList.push_front(current.value);
+        current = current.next;
+      }
+      return newList;
+    }
+  }
 }
 
 let list = new DoublyLinkedList();
@@ -177,5 +192,7 @@ list.push(10)
 // list.traverse();
 // list.insert(99, 8);
 // list.remove(8)
+// let reversed = list.reverse();
+// reversed.traverse();
 
-list.traverse();
+
