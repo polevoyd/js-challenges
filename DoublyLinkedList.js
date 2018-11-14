@@ -208,6 +208,12 @@ class DoublyLinkedList {
     }
     return sumList;
   }
+
+  // sort list 
+  sort() {
+    
+  }
+ 
 }
 
 let list = new DoublyLinkedList();
@@ -221,6 +227,18 @@ list.push(7)
 list.push(8)
 list.push(9)
 list.push(10)
+
+let list2 = new DoublyLinkedList();
+list2.push(1)
+list2.push(2)
+list2.push(3)
+list2.push(4)
+list2.push(5)
+list2.push(6)
+list2.push(7)
+list2.push(8)
+list2.push(9)
+list2.push(10)
 // list.push_front(99)
 // list.push_front(99)
 // list.push_front(99)
@@ -233,7 +251,12 @@ list.push(10)
 // list.remove(8)
 // let reversed = list.reverse();
 // reversed.traverse();
-list.removeByValue(5)
-list.traverse();
+// list.removeByValue(5)
+// list.traverse();
+// list2.traverse();
 
+let sumList = list.merge(list2);
+// sumList.traverse();
+// list2.traverse();
+sumList.sort();
 
