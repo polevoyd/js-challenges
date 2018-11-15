@@ -15,3 +15,9 @@ class BST {
     this.root = null;
   }
 }
+
+let tree = new BST();
+tree.root = new bstNode(10);
+
+
+
