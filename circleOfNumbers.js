@@ -9,7 +9,7 @@ Example
 For n = 10 and firstNumber = 2, the output should be
 circleOfNumbers(n, firstNumber) = 7.
 */
-    
-    let rt = (firstNumber + n/2 > n) ? firstNumber + n/2 - n : firstNumber + n/2;
-    return (rt === n) ? 0 : rt;
+
+  let rt = (firstNumber + n/2 > n) ? firstNumber + n/2 - n : firstNumber + n/2;
+  return (rt === n) ? 0 : rt;
 }
