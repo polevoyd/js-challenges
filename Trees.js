@@ -92,7 +92,7 @@ class BST {
     return data;
   }
 
-  // depth-
+  // depth-first post-order
   DFSPostOrder() {
     let data = [];
     let current = this.root;
@@ -105,6 +105,7 @@ class BST {
     return data;
   }
 
+  // depth-first in-order
   DFSInOrder(){
     let data = [];
     function traverse(node) {
