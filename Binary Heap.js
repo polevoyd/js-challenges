@@ -35,7 +35,7 @@ class MaxBinaryHeap {
     }
     return root;
   }
-  
+
   // helper function for a sink down
   sinkDown() {
     let index = 0;
