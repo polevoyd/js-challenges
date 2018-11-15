@@ -18,20 +18,20 @@ class SinglyLinkedList {
   push(value){
     let newNode = new Node(value);
     if (this.head === null) {
-      this.head = newNode 
-      this.tail = newNode
-      } else {
-        this.tail.next = newNode;
-        this.tail = newNode;
-      }
-    this.length++
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
   }
   // console.log(list)
   traverse() {
-    let current = this.head
+    let current = this.head;
     while (current) {
-      console.log(current.value)
-      current = current.next
+      console.log(current.value);
+      current = current.next;
     }
   }
 
@@ -51,7 +51,7 @@ class SinglyLinkedList {
       this.length--;
       if (this.length === 0) {
         this.head = null;
-        this.tail = null; 
+        this.tail = null;
       }
       return current;
     }
@@ -80,7 +80,7 @@ class SinglyLinkedList {
       this.tail = newHead;
     } else {
       newHead.next = this.head;
-      this.head = newHead; 
+      this.head = newHead;
     }
     length++;
     return this;
@@ -89,7 +89,7 @@ class SinglyLinkedList {
   // get node at nth
   getNode(nth) {
     if ((nth < 0) || (nth > this.length-1)) {
-      return null
+      return null;
     } else {
       let index = 0;
       let current = this.head;
@@ -117,7 +117,7 @@ class SinglyLinkedList {
     }
   }
 
-  // insert node with value at nth 
+  // insert node with value at nth
   insertNode(value, nth) {
     if ((nth < 0) || (nth > this.length-1)) {
       return null;
@@ -163,7 +163,7 @@ class SinglyLinkedList {
     let current = this.head;
     while (current) {
       newList.push_front(current.value);
-      current = current.next;  
+      current = current.next;
     }
     return newList;
   }
