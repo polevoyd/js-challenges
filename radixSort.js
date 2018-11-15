@@ -13,7 +13,7 @@ function mostDigits(array) {
   let max = 0;
   for (let i of array){
     if (digitCount(i) > max)
-        max = digitCount(i);
+      max = digitCount(i);
   }
   return max;
 }
@@ -21,15 +21,15 @@ function mostDigits(array) {
 function radixSort(nums) {
   let maxDigitCount = mostDigits(nums);
   for (let k = 0; k < maxDigitCount; k++) {
-     let digitBuckets = Array.from({length: 10}, () => []);  
-     for (let i = 0; i < nums.length; i++) {
-       let digit = getDigit(nums[i], k);
-       digitBuckets[digit].push(nums[i]);
-     }
-     nums = [].concat(...digitBuckets);
+    let digitBuckets = Array.from({length: 10}, () => []);
+    for (let i = 0; i < nums.length; i++) {
+      let digit = getDigit(nums[i], k);
+      digitBuckets[digit].push(nums[i]);
+    }
+    nums = [].concat(...digitBuckets);
   }
   return nums;
 }
- 
+
 console.log('=======================');
 radixSort([41,5152,52,1,25,161,6,6362,72,36,7,272,273,723,21,5]);
