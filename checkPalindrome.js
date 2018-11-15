@@ -9,14 +9,14 @@ For inputString = "abac", the output should be
 checkPalindrome(inputString) = false;
 For inputString = "a", the output should be
 checkPalindrome(inputString) = true. */
-    
-    for (let i = 0; i < inputString.length ; i++)
-            if (inputString[i] !== inputString[inputString.length - 1 - i])
-                    return false;
 
-    return true;
+  for (let i = 0; i < inputString.length ; i++)
+    if (inputString[i] !== inputString[inputString.length - 1 - i])
+      return false;
+
+  return true;
 }
 // shorter one
 function checkPalindrome(inputString) {
-    return inputString == inputString.split('').reverse().join('');
+  return inputString == inputString.split('').reverse().join('');
 }
