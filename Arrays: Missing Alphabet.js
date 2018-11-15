@@ -22,76 +22,76 @@ You don't need to validate input, the input string will always contain a certain
 // SPACE: N LINEAR
 function insertMissingLetters (str){
 
-let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-let rt2 = [];
-let firstOcc = new Map();
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let rt2 = [];
+  let firstOcc = new Map();
 
-// map of unique characters (their first occurences
-for (let i = 0; i < str.length; i++)
+  // map of unique characters (their first occurences
+  for (let i = 0; i < str.length; i++)
     if (!firstOcc.has(str[i]))
-        firstOcc.set(str[i], i);
-        
-// form a sequences to insert after each character
-for (let key of firstOcc.keys())
-{
+      firstOcc.set(str[i], i);
+
+  // form a sequences to insert after each character
+  for (let key of firstOcc.keys())
+  {
     let temp = '';
     let tempIndex = alphabet.indexOf(key);
-    
+
     for (let k = tempIndex + 1; k < alphabet.length; k++)
     {
-        if (!firstOcc.has(alphabet[k]))
-        {
-          temp += alphabet[k];
-        }
+      if (!firstOcc.has(alphabet[k]))
+      {
+        temp += alphabet[k];
+      }
     }
-       rt2.push(temp.toUpperCase());
-}
-    
-// picking indexes where to insert sequences
-let tempArrayOfIndexes = [];
-for (let index of firstOcc.values())
-{
-    tempArrayOfIndexes.push(index);
-}
+    rt2.push(temp.toUpperCase());
+  }
 
-// array where we going to insert to
-str = Array.from(str);
-
-// tempArrayOfIndexes-> 0, 1, 2, 4
-// rt2 -> sequence to insert on each of that indexes
-// str -> h, e, l, l, o
-
-// insertion process
-let tmpArray = [];
-let amount = 0;
-
-for (let i = 0; i < str.length; i++)
-{
-  tmpArray.push(str[i]);
-  
-  if (i === tempArrayOfIndexes[amount])
+  // picking indexes where to insert sequences
+  let tempArrayOfIndexes = [];
+  for (let index of firstOcc.values())
   {
+    tempArrayOfIndexes.push(index);
+  }
+
+  // array where we going to insert to
+  str = Array.from(str);
+
+  // tempArrayOfIndexes-> 0, 1, 2, 4
+  // rt2 -> sequence to insert on each of that indexes
+  // str -> h, e, l, l, o
+
+  // insertion process
+  let tmpArray = [];
+  let amount = 0;
+
+  for (let i = 0; i < str.length; i++)
+  {
+    tmpArray.push(str[i]);
+
+    if (i === tempArrayOfIndexes[amount])
+    {
       tmpArray.push(rt2[amount]);
       amount++;
+    }
   }
-}
 
-str = tmpArray.join('');
+  str = tmpArray.join('');
   return str;
 }
 /*
 const insertMissingLetters = str => str
   .split``
-  .map((e, i, a) => 
+  .map((e, i, a) =>
     i === a.indexOf(e) ? e + 'abcdefghijklmnopqrstuvwxyz'
-      .split`` 
+      .split``
       .filter(x => !str.includes(x) && x.charCodeAt() > e.charCodeAt())
       .join``
       .toUpperCase() : e)
-  .join``;  
+  .join``;
 */
 /*
-const insertMissingLetters = (str, charSet = "abcdefghijklmnopqrstuvwxyz") => 
+const insertMissingLetters = (str, charSet = "abcdefghijklmnopqrstuvwxyz") =>
     [...new Set(str.split(""))]
         .reduce((p,c) => p.replace(c,c+charSet.slice(charSet.indexOf(c)+1).toUpperCase()),str)
         .replace(new RegExp("["+str.toUpperCase()+"]","g"),"");
