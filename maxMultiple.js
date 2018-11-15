@@ -13,10 +13,10 @@ function maxMultiple(divisor, bound) {
 
 // The largest integer divisible by 3 and not larger than 10 is 9.
 
-    
-    for (let i = bound; i > 0; i--)
-        {
-            if (i % divisor === 0) 
-                return i;
-        }
+
+  for (let i = bound; i > 0; i--)
+  {
+    if (i % divisor === 0)
+      return i;
+  }
 }
