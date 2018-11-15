@@ -19,7 +19,7 @@ class DoublyLinkedList {
     let newNode = new Node(value);
     if (!this.head){
       this.head = newNode;
-      this.tail =  newNode;
+      this.tail = newNode;
     } else {
       this.tail.next = newNode;
       newNode.prev = this.tail;
@@ -36,12 +36,12 @@ class DoublyLinkedList {
     } else {
       let lastNode = this.tail;
       if (this.length === 1) {
-      this.head = null;
-      this.tail = null;
+        this.head = null;
+        this.tail = null;
       } else {
-      this.tail = this.tail.prev;
-      this.tail.next = null;
-      lastNode.prev = null;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        lastNode.prev = null;
       }
       length--;
       return lastNode;
@@ -52,7 +52,7 @@ class DoublyLinkedList {
   traverse(){
     let current = this.head;
     while (current){
-      console.log(current.value)
+      console.log(current.value);
       current = current.next;
     }
   }
@@ -117,7 +117,7 @@ class DoublyLinkedList {
   }
 
   // set nth node value
-  set(value, nth){ 
+  set(value, nth){
     if (this.get(nth)) {
       let newNode = new Node(value);
       let oldNode = this.get(nth);
@@ -127,7 +127,7 @@ class DoublyLinkedList {
   }
 
   // insert node with value to nth place
-  insert(value, nth){ 
+  insert(value, nth){
     if (nth === 0) return this.push_front(value);
     if (this.get(nth)) {
       let newNode = new Node(value);
@@ -149,7 +149,7 @@ class DoublyLinkedList {
     let oldNode = this.get(nth);
     oldNode.prev.next = oldNode.next;
     oldNode.next.prev = oldNode.prev;
-    oldNode.next = null
+    oldNode.next = null;
     oldNode.prev = null;
     this.length--;
     return oldNode;
@@ -169,7 +169,7 @@ class DoublyLinkedList {
       return newList;
     }
   }
-  
+
   // remove element by value
   removeByValue(value) {
     if (this.length === 0) return null;
@@ -200,7 +200,7 @@ class DoublyLinkedList {
     while (second) {
       if ((first.value < second.value) && (first.value)) {
         sumList.push(first.value);
-        first = first.next
+        first = first.next;
       } else {
         sumList.push(second.value);
         second = second.next;
@@ -209,36 +209,36 @@ class DoublyLinkedList {
     return sumList;
   }
 
-  // sort list 
+  // sort list
   sort() {
-    
+
   }
- 
+
 }
 
 let list = new DoublyLinkedList();
-list.push(1)
-list.push(2)
-list.push(3)
-list.push(4)
-list.push(5)
-list.push(6)
-list.push(7)
-list.push(8)
-list.push(9)
-list.push(10)
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
+list.push(6);
+list.push(7);
+list.push(8);
+list.push(9);
+list.push(10);
 
 let list2 = new DoublyLinkedList();
-list2.push(1)
-list2.push(2)
-list2.push(3)
-list2.push(4)
-list2.push(5)
-list2.push(6)
-list2.push(7)
-list2.push(8)
-list2.push(9)
-list2.push(10)
+list2.push(1);
+list2.push(2);
+list2.push(3);
+list2.push(4);
+list2.push(5);
+list2.push(6);
+list2.push(7);
+list2.push(8);
+list2.push(9);
+list2.push(10);
 // list.push_front(99)
 // list.push_front(99)
 // list.push_front(99)
