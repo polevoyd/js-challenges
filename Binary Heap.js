@@ -23,6 +23,9 @@ class MaxBinaryHeap {
       index = parentIndex;
     }
   }
+
+  // remove (extract root)
+  
 }
 
 let heap = new MaxBinaryHeap();
