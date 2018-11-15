@@ -47,10 +47,6 @@ class BST {
   }
 
 
-
-
-
-
 }
 
 let tree = new BST();
