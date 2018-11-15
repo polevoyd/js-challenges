@@ -46,7 +46,24 @@ class BST {
     }
   }
 
+  // find a node
+  find(value) {
+    if (this.root === null) return false;
+    
+    let current = this.root;
+    let found = false;
 
+    while (current && !found) {
+      if (value < current.value) { 
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 let tree = new BST();
@@ -59,7 +76,12 @@ tree.insert(8);
 tree.insert(61);
 tree.insert(7);
 tree.insert(23);
+tree.insert(24);
+tree.insert(26);
+tree.insert(29);
 
+
+tree.find(8);
 
 // console.log(tree);
 
