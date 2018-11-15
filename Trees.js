@@ -10,3 +10,8 @@ class bstNode {
   }
 }
 
+class BST {
+  constructor() {
+    this.root = null;
+  }
+}
