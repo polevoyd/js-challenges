@@ -18,10 +18,10 @@ lateRide(n) = 14.
 
 808 minutes mean that it's 13:28 now, so the answer should be 1 + 3 + 2 + 8 = 14.
 */
-    
-    let hours = Math.floor(n/60);
-    let minutes = Math.floor(n - hours*60);
-    let rt = Math.floor(Math.floor(n/60) / 10 + Math.floor(n/60) % 10) + Math.floor(Math.floor(n - hours*60) / 10 + Math.floor(n - hours*60) % 10);
-    
-    return rt;
+
+  let hours = Math.floor(n/60);
+  let minutes = Math.floor(n - hours*60);
+  let rt = Math.floor(Math.floor(n/60) / 10 + Math.floor(n/60) % 10) + Math.floor(Math.floor(n - hours*60) / 10 + Math.floor(n - hours*60) % 10);
+
+  return rt;
 }

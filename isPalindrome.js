@@ -5,8 +5,8 @@ function isPalindrome(str){
   return str[0] === str[str.length-1] ? isPalindrome(str.substring(1, str.length-1)) : false;
 }
 
-console.log(isPalindrome('awesome') === false) // false
-console.log(isPalindrome('foobar') === false) // false
-console.log(isPalindrome('tacocat') === true) // true
-console.log(isPalindrome('amanaplanacanalpanama') === true) // true
-console.log(isPalindrome('amanaplanacanalpandemonium') === false) // false
+console.log(isPalindrome('awesome') === false); // false
+console.log(isPalindrome('foobar') === false); // false
+console.log(isPalindrome('tacocat') === true); // true
+console.log(isPalindrome('amanaplanacanalpanama') === true); // true
+console.log(isPalindrome('amanaplanacanalpandemonium') === false); // false
