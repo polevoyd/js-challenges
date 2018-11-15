@@ -74,7 +74,7 @@ class BST {
 
     while (queue.length) {
       current = queue.shift();
-      data.push(current);
+      data.push(current.value);
       if (current.left) queue.push(current.left);
       if (current.right) queue.push(current.right);
     }
