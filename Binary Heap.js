@@ -38,6 +38,10 @@ class MaxBinaryHeap {
       let index = 0;
       const length = this.values.length;
       const value = this.values[0];
+      while (true) {
+          let leftChildIndex = 2 * index + 1;
+          let rightChildIndex = 2 * index + 2;
+      }
       
     }
   }
