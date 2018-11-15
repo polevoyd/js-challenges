@@ -68,10 +68,17 @@ class BST {
   BFS(){
     let data = [];
     let queue = [];
-    queue.push(this.root);
+    let current = this.root;
+
+    queue.push(current);
+
     while (queue.length) {
-      
+      current = queue.shift();
+      data.push(current);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
     }
+    return data;
 
 
 
