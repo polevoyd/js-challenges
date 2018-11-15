@@ -1,8 +1,8 @@
 function amendTheSentence(s) {
 /*
-You have been given a string s, which is supposed to be a sentence. However, 
-someone forgot to put spaces between the different words, and for some reason 
-they capitalized the first letter of every word. Return the sentence after 
+You have been given a string s, which is supposed to be a sentence. However,
+someone forgot to put spaces between the different words, and for some reason
+they capitalized the first letter of every word. Return the sentence after
 making the following amendments:
 
 Put a single space between the words.
@@ -32,21 +32,21 @@ The amended sentence.
 // basically, we need to put a space before each Capital letter and after that make that
 // capitals to lower case
 
-    // TIME: N LINEAR (depends on size of string)
-    // SPACE: LINEAR (bigger the string - bigger return string to create)
-    let rs = [];
-    for (let i = 0; i < s.length; i++)
-        {
-            if (s[i] === s[i].toUpperCase() && (i !== 0))
-            {
-                rs += ' ';
-                rs += s[i];
-            }
-            else
-            {
-                rs += s[i];    
-            }
-        }
-    rs = rs.toLowerCase();
-    return rs;
+  // TIME: N LINEAR (depends on size of string)
+  // SPACE: LINEAR (bigger the string - bigger return string to create)
+  let rs = [];
+  for (let i = 0; i < s.length; i++)
+  {
+    if (s[i] === s[i].toUpperCase() && (i !== 0))
+    {
+      rs += ' ';
+      rs += s[i];
+    }
+    else
+    {
+      rs += s[i];
+    }
+  }
+  rs = rs.toLowerCase();
+  return rs;
 }
