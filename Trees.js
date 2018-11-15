@@ -59,10 +59,10 @@ class BST {
       } else if (value > current.value) {
         current = current.right;
       } else {
-        return true;
+        found = true;
       }
     }
-    return false;
+    return current;
   }
 }
 
