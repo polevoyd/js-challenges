@@ -79,14 +79,19 @@ class BST {
       if (current.right) queue.push(current.right);
     }
     return data;
-
-
-
   }
 
-
-
-
+  DFSPreOrder() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    }
+    traverse(current);
+    return data;
+  }
 }
 
 let tree = new BST();
@@ -104,7 +109,9 @@ tree.insert(26);
 tree.insert(29);
 
 
-tree.find(8);
+// tree.find(8);
 
-// console.log(tree);
+console.log(tree);
+tree.DFSPreOrder();
+
 
