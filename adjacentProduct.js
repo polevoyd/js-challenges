@@ -1,6 +1,6 @@
 function adjacentElementsProduct(inputArray) {
 /*
-Given an array of integers, find the pair of adjacent elements that 
+Given an array of integers, find the pair of adjacent elements that
 has the largest product and return that product.
 
 Example
@@ -26,14 +26,14 @@ Guaranteed constraints:
 
 The largest product of adjacent elements.
 */
-    let product = inputArray[0] * inputArray[1];
-    
-    for (let i = 0; i < inputArray.length-1; i++)
-            if (inputArray[i] * inputArray[i+1] > product)
-                product = inputArray[i] * inputArray[i+1];
-    
-    return product;
-    
-    //return Math.max(...arr.slice(1).map((x,i)=>[x*arr[i]]))
+  let product = inputArray[0] * inputArray[1];
+
+  for (let i = 0; i < inputArray.length-1; i++)
+    if (inputArray[i] * inputArray[i+1] > product)
+      product = inputArray[i] * inputArray[i+1];
+
+  return product;
+
+  //return Math.max(...arr.slice(1).map((x,i)=>[x*arr[i]]))
 }
 
