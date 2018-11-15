@@ -119,9 +119,6 @@ class BST {
 }
 
 let tree = new BST();
-// tree.root = new BSTNode(10);
-// tree.left = new BSTNode(5);
-// tree.right = new BSTNode(14);
 tree.insert(12);
 tree.insert(4);
 tree.insert(8);
@@ -131,11 +128,7 @@ tree.insert(23);
 tree.insert(24);
 tree.insert(26);
 tree.insert(29);
-
-
 // tree.find(8);
-
-// console.log(tree);
 tree.DFSPreOrder();
 tree.DFSPostOrder();
 
