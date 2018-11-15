@@ -5,7 +5,7 @@ Example
 
 For n = 29, the output should be
 addTwoDigits(n) = 11.*/
-    
-    return Math.floor(n/10 + n%10);
-    
+
+  return Math.floor(n/10 + n%10);
+
 }
