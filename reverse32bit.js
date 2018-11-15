@@ -15,12 +15,12 @@ Input: 120
 Output: 21
  */
 let reverse = function(x) {
-    
-    let s = x.toString();
-    let r = '';
-    for (let i = s.length - 1; i >= 0  ; i--){
-        r += s[i];
-    }
-    r = (x > 0) ? parseInt(r) : parseInt('-' + r);
-    return ((r > 2147483647) || (r < -2147483648)) ? 0 : r;
+
+  let s = x.toString();
+  let r = '';
+  for (let i = s.length - 1; i >= 0 ; i--){
+    r += s[i];
+  }
+  r = (x > 0) ? parseInt(r) : parseInt('-' + r);
+  return ((r > 2147483647) || (r < -2147483648)) ? 0 : r;
 };
