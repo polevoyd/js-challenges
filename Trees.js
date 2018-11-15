@@ -1,6 +1,3 @@
-// root - main node
-// non-linear data structure
-// only one root and only parent -> child relationship
 
 class BSTNode {
   constructor(value) {
@@ -65,6 +62,7 @@ class BST {
     return current;
   }
 
+  // breadth-first
   BFS(){
     let data = [];
     let queue = [];
@@ -81,6 +79,7 @@ class BST {
     return data;
   }
 
+  // depth-first pre-order
   DFSPreOrder() {
     let data = [];
     let current = this.root;
@@ -93,6 +92,7 @@ class BST {
     return data;
   }
 
+  // depth-
   DFSPostOrder() {
     let data = [];
     let current = this.root;
