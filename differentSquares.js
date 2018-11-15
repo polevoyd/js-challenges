@@ -1,6 +1,6 @@
 function differentSquares(matrix) {
 /*
-Given a rectangular matrix containing only digits, 
+Given a rectangular matrix containing only digits,
 calculate the number of different 2 × 2 squares in it.
 
 Example
@@ -16,10 +16,10 @@ the output should be
 differentSquares(matrix) = 6.
 */
 
-let squares = new Set();
-for (let i = 0; i < matrix.length - 1; i++)
-        for (let k = 0 ; k < matrix[i].length - 1 ; k++)
-                squares.add("s" + matrix[i][k] + matrix[i][k+1] + matrix[i+1][k] + matrix[i+1][k+1]);
+  let squares = new Set();
+  for (let i = 0; i < matrix.length - 1; i++)
+    for (let k = 0 ; k < matrix[i].length - 1 ; k++)
+      squares.add('s' + matrix[i][k] + matrix[i][k+1] + matrix[i+1][k] + matrix[i+1][k+1]);
 
-    return squares.size;
+  return squares.size;
 }
