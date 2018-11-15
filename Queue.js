@@ -17,7 +17,7 @@ class Queue {
     let newNode = new QueueNode(value);
     if (this.tail === null) {
       this.tail = newNode;
-      this.head = newNode
+      this.head = newNode;
       this.length++;
     } else {
       this.tail.next = newNode;
@@ -38,7 +38,7 @@ class Queue {
       return old.value;
     } else {
       this.head = old.next;
-      old.next = null
+      old.next = null;
       this.length--;
       return old.value;
 
@@ -49,9 +49,9 @@ class Queue {
 
 
 let queue = new Queue();
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
 
 queue.dequeue();
 queue.dequeue();
