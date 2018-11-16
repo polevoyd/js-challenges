@@ -26,5 +26,8 @@ let graph = new Graph();
 graph.addVertex('Krasnodar');
 graph.addVertex('Moscow');
 graph.addVertex('Rostov');
+graph.addEdge('Krasnodar', 'Rostov');
+graph.removeEdge('Krasnodar', 'Rostov');
+console.log(graph);
 
 
