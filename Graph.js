@@ -6,8 +6,13 @@ class Graph {
   }
 
   addVertex(name){
-    this.adjacencyList.push({name : []});
+    this.adjacencyList[name] = [];
   }
 }
 
 //
+
+let graph = new Graph();
+graph.addVertex('first!');
+
+console.log(graph.adjacencyList);
