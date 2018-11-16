@@ -39,6 +39,11 @@ class Graph {
       this.adjacencyList[e] = this.adjacencyList[e].filter(v => v !== name);
     });
     delete this.adjacencyList[name];
+    // or
+    while (this.adjacencyList[name].length) {
+      const adl = this.adjacencyList[name].pop();
+      this.removeEdge(name, adl);
+    }
   }
 }
 
