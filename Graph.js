@@ -1,5 +1,5 @@
 class Graph {
-    constructor() {
-        this.adjacencyList = {}
-    }
+  constructor() {
+    this.adjacencyList = {};
+  }
 }
