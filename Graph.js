@@ -40,10 +40,11 @@ class Graph {
     });
     delete this.adjacencyList[name];
     // or
-    while (this.adjacencyList[name].length) {
-      const adl = this.adjacencyList[name].pop();
-      this.removeEdge(name, adl);
-    }
+    // while (this.adjacencyList[name].length) {
+    //   const adl = this.adjacencyList[name].pop();
+    //   this.removeEdge(name, adl);
+    // }
+    // delete this.adjacencyList[name];
   }
 }
 
