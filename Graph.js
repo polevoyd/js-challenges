@@ -9,9 +9,9 @@ class Graph {
     this.adjacencyList[name] = [];
   }
 
-  addEdge(from, to) {
-    this.adjacencyList[from].push(to);
-    this.adjacencyList[to].push(from);
+  addEdge(v1, v2) {
+    this.adjacencyList[v1].push(v2);
+    this.adjacencyList[v2].push(v1);
   }
 }
 
