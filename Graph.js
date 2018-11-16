@@ -8,6 +8,11 @@ class Graph {
   addVertex(name){
     this.adjacencyList[name] = [];
   }
+
+  addEdge(from, to) {
+    this.adjacencyList[from].push(to);
+    this.adjacencyList[to].push(from);
+  }
 }
 
 //
