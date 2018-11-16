@@ -6,7 +6,12 @@ class Graph {
   }
 
   addVertex(name){
-    this.adjacencyList[name] = [];
+    if (this.adjacencyList.hasOwnProperty(name)) {
+      this.adjacencyList[name].push(name);
+    } else {
+      this.adjacencyList[name] = [];
+    }
+
   }
 }
 
@@ -15,4 +20,4 @@ class Graph {
 let graph = new Graph();
 graph.addVertex('first!');
 
-console.log(graph.adjacencyList);
+graph.adjacencyList;
