@@ -6,12 +6,7 @@ class Graph {
   }
 
   addVertex(name){
-    if (this.adjacencyList.hasOwnProperty(name)) {
-      this.adjacencyList[name].push(name);
-    } else {
-      this.adjacencyList[name] = [];
-    }
-
+    this.adjacencyList[name] = [];
   }
 }
 
