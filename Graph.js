@@ -17,20 +17,24 @@ class Graph {
   }
 
   addVertex(name){
+    // add a key to adl
     this.adjacencyList[name] = [];
   }
 
   addEdge(v1, v2) {
+    // add connection between
     this.adjacencyList[v1].push(v2);
     this.adjacencyList[v2].push(v1);
   }
 
   removeEdge(v1, v2) {
+    // remove connection
     this.adjacencyList[v1] = this.adjacencyList[v1].filter(v => v !== v2);
     this.adjacencyList[v2] = this.adjacencyList[v2].filter(v => v !== v1);
   }
 
   removeVertex(name) {
+    // remove a connection from each vertexes
     this.adjacencyList[name].map(e => {
       this.adjacencyList[e] = this.adjacencyList[e].filter(v => v !== name);
     });
@@ -45,7 +49,12 @@ graph.addVertex('Krasnodar');
 graph.addVertex('Moscow');
 graph.addVertex('Rostov');
 graph.addEdge('Krasnodar', 'Rostov');
-graph.removeEdge('Krasnodar', 'Rostov');
+graph.addEdge('Krasnodar', 'Moscow');
+graph.addEdge('Moscow', 'Rostov');
+// graph.removeEdge('Krasnodar', 'Rostov');
+
+graph.removeVertex('Moscow');
+
 console.log(graph);
 
 
