@@ -74,6 +74,7 @@ class Graph {
     return result;
   }
 
+  // breadth-first iterative
   bfs(start) {
     const result = [];
     const visited = {};
@@ -91,8 +92,6 @@ class Graph {
     }
     return result;
   }
-
-
 }
 
 //
