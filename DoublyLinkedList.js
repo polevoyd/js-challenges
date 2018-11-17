@@ -1,17 +1,40 @@
 
+
+/**
+ * • Contiguously-allocated structures are composed of single slabs of memory, and
+include arrays, matrices, heaps, and hash tables.
+• Linked data structures are composed of distinct chunks of memory bound
+together by pointers, and include lists, trees, and graph adjacency lists.
+ */
 /*
-In computer science, a linked list is a linear collection of data elements, 
-in which linear order is not given by their physical placement in memory. 
-Instead, each element points to the next. It is a data structure consisting of 
-a group of nodes which together represent a sequence. Under the simplest form, 
-each node is composed of data and a reference (in other words, a link) to the 
-next node in the sequence. This structure allows for efficient insertion or 
-removal of elements from any position in the sequence during iteration. More 
-complex variants add additional links, allowing efficient insertion or removal 
-from arbitrary element references. A drawback of linked lists is that access time 
-is linear (and difficult to pipeline). Faster access, such as random access, 
-is not feasible. Arrays have better cache locality as compared to linked lists.
++ efficient insertion or removal of elements from any position
+- access time is linear (and difficult to pipeline)
+- arrays have better cache locality as compared to linked lists.
+
 */
+
+/**
+ * 
+ * Use for
+
+Insertion into the middle/beginning of the list
+Efficient sorting (pointer swap vs. copying)
+Do not use for
+
+Direct access
+Time Complexity
+
+Operation	Time Complexity
+Insert Head	O(1)
+Insert Index	O(n)
+Insert Tail	O(1)
+Remove Head	O(1)
+Remove Index	O(n)
+Remove Tail	O(1)
+Find Index	O(n)
+Find Object	O(n)
+
+ */
 class Node {
   constructor(value){
     this.value = value;
