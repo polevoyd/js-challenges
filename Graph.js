@@ -59,21 +59,17 @@ class Graph {
     let stack = [start];
     let visited = {};
     let result = [];
-
     visited[start] = true;
 
     while (stack.length > 0) {
       let current = stack.pop();
       result.push(current);
-
       this.adjacencyList[current].forEach(neighbor => {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
           stack.push(neighbor);
         }
       });
-
-
     }
     return result;
   }
