@@ -7,11 +7,21 @@
  * links or other formatting information.
  * + Memory locality – Excellent memory locality. Good for CPU caching.
  * - Slow insertion in head/index
- * 
+ *
  *          Head        Index       Tail
  * Insert   N           N           1
  * Remove   N           N           1
  * Search   N
- * 
+ *
  */
 
+ /* First duplicate */
+function firstDuplicate(a) {
+  let mp = new Map();
+  for (let element of a)
+    if (mp.has(element))
+      return element;
+    else
+      mp.set(element, 1);
+  return -1;
+}
