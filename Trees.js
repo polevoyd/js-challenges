@@ -2,13 +2,13 @@
  * Binary Trees: 2 childs at most
  * Binary Search Trees: left < parent < right
  * 
- * Access/Search/Insert/Delete: log(N)
- * 
  * Breadth-first traversal : left -> right each level from top
  * Depth-first traversal:
  *        inorder:    left - root - right
  *        preorder:   root - left - right
  *        postorder:  left - right - root
+ * 
+ *  Access/Search/Insert/Delete: log(N)
  */
 
 class BSTNode {
