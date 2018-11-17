@@ -1,3 +1,4 @@
+// helper simple priority queue N*logN with sorting
 class PriorityQueue {
   constructor() {
     this.values = [];
@@ -5,6 +6,7 @@ class PriorityQueue {
 
   enqueue(value, priority) {
     this.values.push({value, priority});
+    this.sort();
   }
 
   dequeue() {
