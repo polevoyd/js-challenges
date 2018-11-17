@@ -49,10 +49,11 @@ function rotateMatrix(a) {
     }
     transposed.push(row);
   }
-
   // 2 - reverse rows
   for (let i = 0; i < transposed.length; i++) {
     transposed[i] = transposed[i].reverse();
   }
   return transposed;
 }
+
+// Sudoku Validator
