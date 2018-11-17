@@ -55,26 +55,28 @@ class Graph {
   }
 
   // depth-first iterative
-  dfsIterative(current) {
+  dfsIterative(start) {
     let adlist = this.adjacencyList;
-    let s = [];
+    let stack = [];
     let visited = {};
     let result = [];
 
-    s.push(current);
-    visited[current] = true;
+    visited[start] = true;
 
-    while (s.length > 0) {
-      let v = s.pop();
-      if (!visited.hasOwnProperty(v)) {
-        s.push(v);
-        visited[v] = true;
-        for (let neighbors of adlist[v]) {
-          s.push(neighbors);
+    while (stack.length > 0) {
+      let current = stack.pop();
+      result.push(current);
+
+      this.adjacencyList[current].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          stack.push(neighbor);
         }
-      }
-    }
+      });
 
+
+    }
+    return result;
   }
 
 
@@ -94,5 +96,5 @@ graph.addEdge('Moscow', 'Rostov');
 
 // graph.removeVertex('Moscow');
 
-console.log(graph.dfsRecursion('Moscow'));
+console.log(graph.dfsIterative('Moscow'));
 
