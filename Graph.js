@@ -56,8 +56,7 @@ class Graph {
 
   // depth-first iterative
   dfsIterative(start) {
-    let adlist = this.adjacencyList;
-    let stack = [];
+    let stack = [start];
     let visited = {};
     let result = [];
 
