@@ -1,3 +1,12 @@
+/**
+ * Last-in, first-out (LIFO)
+ * 
+ * Push  1
+ * Pop   1
+ * Top   1
+ * 
+ */
+
 class StackNode {
   constructor(value) {
     this.value = value;
@@ -44,17 +53,3 @@ class Stack {
     return this.head.value ? this.head.value : null;
   }
 }
-
-
-let stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.push(4);
-stack.push(5);
-
-stack.pop();
-stack.pop();
-stack.pop();
-
-stack.top();
