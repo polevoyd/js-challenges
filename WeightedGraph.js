@@ -37,9 +37,17 @@ let graph = new WeightedGraph();
 graph.addVertex('A');
 graph.addVertex('B');
 graph.addVertex('C');
+graph.addVertex('D');
+graph.addVertex('E');
+graph.addVertex('F');
 
 graph.addEdge('A', 'B', 9);
 graph.addEdge('A', 'C', 5);
-graph.addEdge('B', 'C', 7);
+graph.addEdge('B', 'E', 7);
+graph.addEdge('C', 'D', 9);
+graph.addEdge('C', 'F', 5);
+graph.addEdge('D', 'E', 7);
+graph.addEdge('D', 'F', 9);
+graph.addEdge('E', 'F', 5);
 
 console.log(graph.adjacencyList);
