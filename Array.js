@@ -27,17 +27,13 @@ function firstDuplicate(a) {
 }
 
 // First unique
-const firstNotRepeatingCharacter = (s) => {
+function firstNotRepeatingCharacter(s) {
   let counter = new Map();
-  for (let i of s) {
-    if (counter.hasOwnProperty(i)){
-      counter[i]++;
-    } else {
-      counter[i] = 1;
-    }
-  }
+  for (let i of s)
+    counter.hasOwnProperty(i) ? counter[i]++ : counter[i] = 1;
+
   for (let i of Object.keys(counter)) {
     if (counter[i] === 1) return i;
   }
   return '_';
-};
+}
