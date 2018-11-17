@@ -47,23 +47,18 @@ class Graph {
     // delete this.adjacencyList[name];
   }
 
-  DFSRecursion(current) {
+  dfsRecursion(start) {
     let result = [];
     let visited = {};
 
-    function helper(current) {
-      if (current === null) { return; }
-      result.push(current);
-      visited[current] = true;
-      for (let v of this.adjacencyList[current]) {
-        if (!visited.hasOwnProperty(v)) {
-          this.DFSRecursion(v);
-        }
-      }
+    (function helper(v) {
+      if (!v) return null;
+      visited[v] = true;
+      result.push(v);
+      console.log(this.adjacencyList[v]);
 
-    }
-
-
+    })(start);
+    
   }
 
 
@@ -81,8 +76,7 @@ graph.addEdge('Krasnodar', 'Moscow');
 graph.addEdge('Moscow', 'Rostov');
 // graph.removeEdge('Krasnodar', 'Rostov');
 
-graph.removeVertex('Moscow');
+// graph.removeVertex('Moscow');
 
-console.log(graph);
-
+graph.dfsRecursion('Moscow');
 
