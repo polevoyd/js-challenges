@@ -1,55 +1,21 @@
-
-
 /**
+ * Linked data structures are composed of distinct chunks of memory bound
+ * together by pointers, and include lists, trees, and graph adjacency lists.
  * 
-• Linked data structures are composed of distinct chunks of memory bound
-together by pointers, and include lists, trees, and graph adjacency lists.
- */
-/*
-+ efficient insertion or removal of elements from any position
-- access time is linear (and difficult to pipeline)
-- arrays have better cache locality as compared to linked lists.
-
-*/
-
-/**
+ * + Insertions and deletions are simpler than for contiguous (array) lists.
+ * + Overflow on linked structures can never occur unless the memory full.
+ * - Access time is linear
+ * - Linked structures require extra space for storing pointer fields.
+ * + Efficient sorting (pointer swap vs. copying)?
  * 
- * The relative advantages of linked lists over static arrays include:
-• Overflow on linked structures can never occur unless the memory is actually
-full.
-
-3.2 STACKS AND QUEUES 71
-
-• Insertions and deletions are simpler than for contiguous (array) lists.
-• With large records, moving pointers is easier and faster than moving the
-items themselves.
-while the relative advantages of arrays include:
-• Linked structures require extra space for storing pointer fields.
-• Linked lists do not allow efficient random access to items.
-• Arrays allow better memory locality and cache performance than random
-pointer jumping.
-
- * Use for
-
-Insertion into the middle/beginning of the list
-Efficient sorting (pointer swap vs. copying)
-Do not use for
-
-Direct access
-Time Complexity
-
-Operation	Time Complexity
-Insert Head	O(1)
-Insert Index	O(n)
-Insert Tail	O(1)
-Remove Head	O(1)
-Remove Index	O(n)
-Remove Tail	O(1)
-Find Index	O(n)
-Find Object	O(n)
-
+ *          Head        Index       Tail
+ * Insert   1           N           1
+ * Remove   1           N           1
+ * Search   N
+ * 
  */
-class Node {
+
+class LLNode {
   constructor(value){
     this.value = value;
     this.next = null;
@@ -66,7 +32,7 @@ class DoublyLinkedList {
 
   // add to tail
   push(value) {
-    let newNode = new Node(value);
+    let newNode = new LLNode(value);
     if (!this.head){
       this.head = newNode;
       this.tail = newNode;
@@ -93,7 +59,7 @@ class DoublyLinkedList {
         this.tail.next = null;
         lastNode.prev = null;
       }
-      length--;
+      this.length--;
       return lastNode;
     }
   }
@@ -128,7 +94,7 @@ class DoublyLinkedList {
 
   // add to head
   push_front(value){
-    let newNode = new Node(value);
+    let newNode = new LLNode(value);
     if (this.length === 0) {
       this.head = newNode;
       this.tail = newNode;
@@ -169,7 +135,6 @@ class DoublyLinkedList {
   // set nth node value
   set(value, nth){
     if (this.get(nth)) {
-      let newNode = new Node(value);
       let oldNode = this.get(nth);
       oldNode.value = value;
       return this;
@@ -180,7 +145,7 @@ class DoublyLinkedList {
   insert(value, nth){
     if (nth === 0) return this.push_front(value);
     if (this.get(nth)) {
-      let newNode = new Node(value);
+      let newNode = new LLNode(value);
       let oldNode = this.get(nth);
       newNode.next = oldNode;
       newNode.prev = oldNode.prev;
@@ -226,7 +191,6 @@ class DoublyLinkedList {
     let current = this.head;
     while (current){
       if (current.value === value) {
-        let temp = current;
         current.prev.next = current.next;
         current.next.prev = current.prev;
         current.next = null;
@@ -258,55 +222,5 @@ class DoublyLinkedList {
     }
     return sumList;
   }
-
-  // sort list
-  sort() {
-
-  }
-
 }
-
-let list = new DoublyLinkedList();
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
-list.push(6);
-list.push(7);
-list.push(8);
-list.push(9);
-list.push(10);
-
-let list2 = new DoublyLinkedList();
-list2.push(1);
-list2.push(2);
-list2.push(3);
-list2.push(4);
-list2.push(5);
-list2.push(6);
-list2.push(7);
-list2.push(8);
-list2.push(9);
-list2.push(10);
-// list.push_front(99)
-// list.push_front(99)
-// list.push_front(99)
-// list.pop()
-// list.pop_front()
-// console.log('-----------------------')
-// list.pop();
-// list.traverse();
-// list.insert(99, 8);
-// list.remove(8)
-// let reversed = list.reverse();
-// reversed.traverse();
-// list.removeByValue(5)
-// list.traverse();
-// list2.traverse();
-
-let sumList = list.merge(list2);
-// sumList.traverse();
-// list2.traverse();
-sumList.sort();
 
