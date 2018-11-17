@@ -31,15 +31,34 @@ class WeightedGraph {
     this.adjacencyList[node1].push({node : node2, weight: weight});
     this.adjacencyList[node2].push({node : node1, weight});
   }
+
+  Dijkstra(start, finish) {
+
+    const nodes = new PriorityQueue();
+    const distances = {};
+    const previous = {};
+
+    // build up initial state
+    for (let node in this.adjacencyList) {
+      if (node === start) {
+        distances[node] = 0;
+        nodes.enqueue(node, 0);
+      } else {
+        distances[node] = Infinity;
+        nodes.enqueue(node, Infinity);
+      }
+      previous[node] = null;
+    }
+  }
 }
 
 let graph = new WeightedGraph();
-graph.addVertex('A');
-graph.addVertex('B');
-graph.addVertex('C');
-graph.addVertex('D');
-graph.addVertex('E');
-graph.addVertex('F');
+graph.addNode('A');
+graph.addNode('B');
+graph.addNode('C');
+graph.addNode('D');
+graph.addNode('E');
+graph.addNode('F');
 
 graph.addEdge('A', 'B', 9);
 graph.addEdge('A', 'C', 5);
@@ -51,3 +70,5 @@ graph.addEdge('D', 'F', 9);
 graph.addEdge('E', 'F', 5);
 
 console.log(graph.adjacencyList);
+
+graph.Dijkstra('A', 'E');
