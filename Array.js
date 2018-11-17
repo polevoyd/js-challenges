@@ -39,7 +39,7 @@ function firstNotRepeatingCharacter(s) {
 }
 
 // Rotate Matrix
-function rotateImage(a) {
+function rotateMatrix(a) {
   // 1 - transpose
   let transposed = [];
   for (let i = 0; i < a.length; i++) {
