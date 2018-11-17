@@ -94,6 +94,6 @@ graph.addEdge('D','F', 1);
 graph.addEdge('E','F', 1);
 
 
-graph.Dijkstra('A', 'E');
+console.log(graph.Dijkstra('A', 'E'));
 
 // ["A", "C", "D", "F", "E"]
