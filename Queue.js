@@ -1,3 +1,12 @@
+/**
+ *
+ * First in, first out (FIFO)
+ * 
+ * Enqueue  1
+ * Dequeue  1
+ * 
+ */
+
 class QueueNode {
   constructor(value) {
     this.value = value;
@@ -41,19 +50,6 @@ class Queue {
       old.next = null;
       this.length--;
       return old.value;
-
     }
   }
 }
-
-
-
-let queue = new Queue();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-
-queue.dequeue();
-queue.dequeue();
-queue.dequeue();
-queue.dequeue();
