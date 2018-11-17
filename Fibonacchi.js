@@ -25,6 +25,6 @@ function fibTab(n) {
 
 // console.log(fibonacci(20));
 
-console.log(fibonacciMemo(20));
+console.log(fibTab(10000));
 
 
