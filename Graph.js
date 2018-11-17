@@ -75,9 +75,11 @@ class Graph {
   }
 
   bfs(start) {
-    const queue = [start];
+    
     const result = [];
     const visited = {};
+    const queue = [start];
+    visited[start] = true;
 
     while (queue.length) {
       let current = queue.shift();
@@ -109,5 +111,5 @@ graph.addEdge('Moscow', 'Rostov');
 
 // graph.removeVertex('Moscow');
 
-console.log(graph.dfsIterative('Moscow'));
+console.log(graph.bfs('Moscow'));
 
