@@ -47,6 +47,7 @@ class Graph {
     // delete this.adjacencyList[name];
   }
 
+  // depth-first recursively
   dfsRecursion(start) {
     let result = [];
     let visited = {};
@@ -57,13 +58,13 @@ class Graph {
       visited[v] = true;
       result.push(v);
       adl[v].forEach(sibling => {
-          if (!visited[sibling]) {
-              return dfs(sibling);
-          }
+        if (!visited[sibling]) {
+          return dfs(sibling);
+        }
       });
-
     })(start);
-    
+
+    return result;
   }
 
 
@@ -83,5 +84,5 @@ graph.addEdge('Moscow', 'Rostov');
 
 // graph.removeVertex('Moscow');
 
-graph.dfsRecursion('Moscow');
+console.log(graph.dfsRecursion('Moscow'));
 
