@@ -55,8 +55,26 @@ class Graph {
   }
 
   // depth-first iterative
-  dfsIterative(start) {
-      
+  dfsIterative(current) {
+    let adlist = this.adjacencyList;
+    let s = [];
+    let visited = {};
+    let result = [];
+
+    s.push(current);
+    visited[current] = true;
+
+    while (s.length > 0) {
+      let v = s.pop();
+      if (!visited.hasOwnProperty(v)) {
+        s.push(v);
+        visited[v] = true;
+        for (let neighbors of adlist[v]) {
+          s.push(neighbors);
+        }
+      }
+    }
+
   }
 
 
