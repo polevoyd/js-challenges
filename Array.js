@@ -1,5 +1,6 @@
 /**
- *
+ * Contiguously-allocated structures are composed of single slabs of memory, and
+ * include arrays, matrices, heaps, and hash tables.
  * + Constant-time access given the index – Index of each element
  * maps directly to a particular memory address.
  * + Space efficiency – Consist purely of data, so no space is wasted with

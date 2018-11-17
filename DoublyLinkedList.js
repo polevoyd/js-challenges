@@ -1,8 +1,7 @@
 
 
 /**
- * • Contiguously-allocated structures are composed of single slabs of memory, and
-include arrays, matrices, heaps, and hash tables.
+ * 
 • Linked data structures are composed of distinct chunks of memory bound
 together by pointers, and include lists, trees, and graph adjacency lists.
  */
@@ -15,6 +14,21 @@ together by pointers, and include lists, trees, and graph adjacency lists.
 
 /**
  * 
+ * The relative advantages of linked lists over static arrays include:
+• Overflow on linked structures can never occur unless the memory is actually
+full.
+
+3.2 STACKS AND QUEUES 71
+
+• Insertions and deletions are simpler than for contiguous (array) lists.
+• With large records, moving pointers is easier and faster than moving the
+items themselves.
+while the relative advantages of arrays include:
+• Linked structures require extra space for storing pointer fields.
+• Linked lists do not allow efficient random access to items.
+• Arrays allow better memory locality and cache performance than random
+pointer jumping.
+
  * Use for
 
 Insertion into the middle/beginning of the list
