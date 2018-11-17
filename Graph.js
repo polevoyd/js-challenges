@@ -51,7 +51,19 @@ class Graph {
     let result = [];
     let visited = {};
 
-    if (current === null) { return; }
+    function helper(current) {
+      if (current === null) { return; }
+      result.push(current);
+      visited[current] = true;
+      for (let v of this.adjacencyList[current]) {
+        if (!visited.hasOwnProperty(v)) {
+          this.DFSRecursion(v);
+        }
+      }
+
+    }
+
+
   }
 
 
