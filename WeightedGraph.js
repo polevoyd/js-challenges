@@ -3,13 +3,13 @@ class WeightedGraph {
     this.adjacencyList = {};
   }
 
-  addVertex(vertex) {
-    if (!this.adjacencyList[vertex]) this.adjacencyList[vertex] = [];
+  addNode(node) {
+    if (!this.adjacencyList[node]) this.adjacencyList[node] = [];
   }
 
-  addEdge(vertex1, vertex2, weight) {
-    this.adjacencyList[vertex1].push({node : vertex2, weight: weight});
-    this.adjacencyList[vertex2].push({node : vertex1, weight});
+  addEdge(node1, node2, weight) {
+    this.adjacencyList[node1].push({node : node2, weight: weight});
+    this.adjacencyList[node2].push({node : node1, weight});
   }
 }
 
