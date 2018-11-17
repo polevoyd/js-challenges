@@ -1,4 +1,7 @@
-
+/**
+ * Binary Trees: 2 childs at most
+ * Binary Search Trees: left < parent < right
+ */
 class BSTNode {
   constructor(value) {
     this.value = value;
@@ -46,10 +49,8 @@ class BST {
   // find a node
   find(value) {
     if (this.root === null) return false;
-    
     let current = this.root;
     let found = false;
-
     while (current && !found) {
       if (value < current.value) { 
         current = current.left;
@@ -67,9 +68,7 @@ class BST {
     let data = [];
     let queue = [];
     let current = this.root;
-
     queue.push(current);
-
     while (queue.length) {
       current = queue.shift();
       data.push(current.value);
@@ -95,7 +94,6 @@ class BST {
   // depth-first post-order
   DFSPostOrder() {
     let data = [];
-    let current = this.root;
     function traverse(node) {
       if (node.left) traverse(node.left);
       if (node.right) traverse(node.right);
@@ -117,19 +115,5 @@ class BST {
     return data;
   }
 }
-
-let tree = new BST();
-tree.insert(12);
-tree.insert(4);
-tree.insert(8);
-tree.insert(61);
-tree.insert(7);
-tree.insert(23);
-tree.insert(24);
-tree.insert(26);
-tree.insert(29);
-// tree.find(8);
-tree.DFSPreOrder();
-tree.DFSPostOrder();
 
 
