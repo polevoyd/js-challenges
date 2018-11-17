@@ -47,8 +47,15 @@ class Graph {
     // delete this.adjacencyList[name];
   }
 
+  DFSRecursion(current) {
+    let result = [];
+    let visited = {};
 
-  
+    if (current === null) { return; }
+  }
+
+
+
 }
 
 //
