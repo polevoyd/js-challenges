@@ -52,7 +52,6 @@ class Graph {
     let result = [];
     let visited = {};
     let adl = this.adjacencyList;
-
     (function dfs(v) {
       if (!v) return null;
       visited[v] = true;
@@ -63,7 +62,6 @@ class Graph {
         }
       });
     })(start);
-
     return result;
   }
 
