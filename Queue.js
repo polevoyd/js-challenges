@@ -1,5 +1,4 @@
 /**
- *
  * First in, first out (FIFO)
  * 
  * Enqueue  1
