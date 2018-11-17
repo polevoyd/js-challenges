@@ -15,7 +15,7 @@
  *
  */
 
- /* First duplicate */
+/* First duplicate */
 function firstDuplicate(a) {
   let mp = new Map();
   for (let element of a)
@@ -28,16 +28,16 @@ function firstDuplicate(a) {
 
 // First unique
 const firstNotRepeatingCharacter = (s) => {
-    let counter = new Map();
-    for (let i of s) {
-        if (counter.hasOwnProperty(i)){
-            counter[i]++;
-        } else {
-            counter[i] = 1;
-        }
+  let counter = new Map();
+  for (let i of s) {
+    if (counter.hasOwnProperty(i)){
+      counter[i]++;
+    } else {
+      counter[i] = 1;
     }
-    for (let i of Object.keys(counter)) {
-        if (counter[i] === 1) return i;
-    }
-    return '_';
-}
+  }
+  for (let i of Object.keys(counter)) {
+    if (counter[i] === 1) return i;
+  }
+  return '_';
+};
