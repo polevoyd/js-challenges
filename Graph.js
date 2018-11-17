@@ -50,12 +50,17 @@ class Graph {
   dfsRecursion(start) {
     let result = [];
     let visited = {};
+    let adl = this.adjacencyList;
 
-    (function helper(v) {
+    (function dfs(v) {
       if (!v) return null;
       visited[v] = true;
       result.push(v);
-      console.log(this.adjacencyList[v]);
+      adl[v].forEach(sibling => {
+          if (!visited[sibling]) {
+              return dfs(sibling);
+          }
+      });
 
     })(start);
     
