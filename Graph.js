@@ -104,8 +104,6 @@ graph.addEdge('Krasnodar', 'Rostov');
 graph.addEdge('Krasnodar', 'Moscow');
 graph.addEdge('Moscow', 'Rostov');
 // graph.removeEdge('Krasnodar', 'Rostov');
-
 // graph.removeVertex('Moscow');
-
-console.log(graph.bfs('Moscow'));
+// console.log(graph.bfs('Moscow'));
 
