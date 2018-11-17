@@ -37,3 +37,22 @@ function firstNotRepeatingCharacter(s) {
   }
   return '_';
 }
+
+// Rotate Matrix
+function rotateImage(a) {
+  // 1 - transpose
+  let transposed = [];
+  for (let i = 0; i < a.length; i++) {
+    let row = [];
+    for (let k = 0; k < a.length; k++) {
+      row.push(a[k][i]);
+    }
+    transposed.push(row);
+  }
+
+  // 2 - reverse rows
+  for (let i = 0; i < transposed.length; i++) {
+    transposed[i] = transposed[i].reverse();
+  }
+  return transposed;
+}
