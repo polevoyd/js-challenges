@@ -298,7 +298,7 @@ function isListPalindrome2(list) {
   }
   // Find the first difference
   while (list) {
-    if (slow.value != list.value) return false;
+    if (slow.value !== list.value) return false;
     slow = slow.next;
     list = list.next;
   }
