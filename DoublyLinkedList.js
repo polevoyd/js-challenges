@@ -250,11 +250,11 @@ function removeKFromList(l, k) {
   return res;
 }
 
-//Note: Try to solve this task in O(n) time using O(1) additional space, 
+//Note: Try to solve this task in O(n) time using O(1) additional space,
 //where n is the number of elements in l, since this is what you'll be asked to do during an interview.
 // Given a singly linked list of integers, determine whether or not it's a palindrome.
 
-function isListPalindrome(l) {
+function isListPalindrome1(l) {
   // creating array from list
   // checking if array is palindrome
   // N time, N space
@@ -262,14 +262,52 @@ function isListPalindrome(l) {
   let current = l;
   let arr = [];
   while (current) {
-      arr.push(current.value);
-      current = current.next;
+    arr.push(current.value);
+    current = current.next;
   }
   if (arr.length <= 1) return true;
   for (let i = 0; i < arr.length; i++) {
-      if (arr[i] !== arr[arr.length-1-i]) {
-          return false;
-      }
+    if (arr[i] !== arr[arr.length-1-i]) {
+      return false;
+    }
   }
+  return true;
+}
+
+// Definition for singly-linked list:
+// function ListNode(x) {
+//   this.value = x;
+//   this.next = null;
+// }
+
+/* Basic idea:
+ * - Find the center point of the node list, using double steps (fast var) and
+ *   reverse the first half of the list.
+ * - Walk on the second half and walk back in the first to the first difference.
+ * - Return false if found diff, or true if all items are equal.
+ */
+function isListPalindrome2(list) {
+  var slow = null,
+    fast = list,
+    temp;
+  // Find center point and reverse the first half of the list
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    temp = list.next;
+    list.next = slow;
+    slow = list;
+    list = temp;
+  }
+  // If fast not null, list length is odd, ignore the center value
+  if (fast) {
+    list = list.next;
+  }
+  // Find the first difference
+  while (list) {
+    if (slow.value != list.value) return false;
+    slow = slow.next;
+    list = list.next;
+  }
+  // Return true, if no diff
   return true;
 }
