@@ -305,3 +305,70 @@ function isListPalindrome2(list) {
   // Return true, if no diff
   return true;
 }
+
+// Definition for singly-linked list:
+// function ListNode(x) {
+//   this.value = x;
+//   this.next = null;
+// }
+//
+/*
+* Note: Your solution should have O(l1.length + l2.length) time complexity,
+since this is what you will be asked to accomplish in an interview.
+
+Given two singly linked lists sorted in non-decreasing order, your task is to
+merge them. In other words, return a singly linked list, also sorted in
+non-decreasing order, that contains the elements from both original lists.
+
+Example
+
+For l1 = [1, 2, 3] and l2 = [4, 5, 6], the output should be
+mergeTwoLinkedLists(l1, l2) = [1, 2, 3, 4, 5, 6];
+For l1 = [1, 1, 2, 4] and l2 = [0, 3, 5], the output should be
+mergeTwoLinkedLists(l1, l2) = [0, 1, 1, 2, 3, 4, 5].
+*/
+function mergeTwoLinkedLists(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
+
+  let result = [];
+  let current1 = l1;
+  let current2 = l2;
+
+  // while at least one of lists alive we'll keep going
+  while (current1 || current2) {
+
+    // if both alive, compare
+    if (current1 && current2) {
+
+      // depends on which smaller, save value
+      // and move current
+      if (current1.value < current2.value) {
+
+        result.push(current1.value);
+        current1 = current1.next;
+
+      } else {
+
+        result.push(current2.value);
+        current2 = current2.next;
+
+      }
+      // if only first alive
+      // save value and move current
+    } else if (current1) {
+
+      result.push(current1.value);
+      current1 = current1.next;
+
+    } else if (current2) {
+      // if only second alive
+      // save value and move current
+      result.push(current2.value);
+      current2 = current2.next;
+
+    }
+  }
+
+  return result;
+}
