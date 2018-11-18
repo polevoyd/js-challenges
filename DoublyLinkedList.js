@@ -249,3 +249,27 @@ function removeKFromList(l, k) {
   }
   return res;
 }
+
+//Note: Try to solve this task in O(n) time using O(1) additional space, 
+//where n is the number of elements in l, since this is what you'll be asked to do during an interview.
+// Given a singly linked list of integers, determine whether or not it's a palindrome.
+
+function isListPalindrome(l) {
+  // creating array from list
+  // checking if array is palindrome
+  // N time, N space
+  if (!l) return true;
+  let current = l;
+  let arr = [];
+  while (current) {
+      arr.push(current.value);
+      current = current.next;
+  }
+  if (arr.length <= 1) return true;
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] !== arr[arr.length-1-i]) {
+          return false;
+      }
+  }
+  return true;
+}
