@@ -273,13 +273,7 @@ function isListPalindrome1(l) {
   }
   return true;
 }
-
-// Definition for singly-linked list:
-// function ListNode(x) {
-//   this.value = x;
-//   this.next = null;
-// }
-
+// from user 'Kov':
 /* Basic idea:
  * - Find the center point of the node list, using double steps (fast var) and
  *   reverse the first half of the list.
