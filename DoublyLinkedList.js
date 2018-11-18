@@ -279,6 +279,7 @@ function isListPalindrome1(l) {
  *   reverse the first half of the list.
  * - Walk on the second half and walk back in the first to the first difference.
  * - Return false if found diff, or true if all items are equal.
+ *  (divide list by half, reverse first half and compare that two lists side-by-side)
  */
 function isListPalindrome2(list) {
   var slow = null,
