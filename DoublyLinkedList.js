@@ -1,18 +1,18 @@
 /**
  * Linked data structures are composed of distinct chunks of memory bound
  * together by pointers, and include lists, trees, and graph adjacency lists.
- * 
+ *
  * + Insertions and deletions are simpler than for contiguous (array) lists.
  * + Overflow on linked structures can never occur unless the memory full.
  * - Access time is linear
  * - Linked structures require extra space for storing pointer fields.
  * + Efficient sorting (pointer swap vs. copying)?
- * 
+ *
  *          Head        Index       Tail
  * Insert   1           N           1
  * Remove   1           N           1
  * Search   N
- * 
+ *
  */
 
 class LLNode {
@@ -224,3 +224,28 @@ class DoublyLinkedList {
   }
 }
 
+/**
+ *  Challenges
+ */
+
+// Definition for singly-linked list:
+// function ListNode(x) {
+//   this.value = x;
+//   this.next = null;
+// }
+//
+// Given a singly linked list of integers l and an integer k,
+// remove all elements from list l that have a value equal to k.
+
+function removeKFromList(l, k) {
+  let res = [];
+  if (!l) return l;
+  let current = l;
+  while (current) {
+    if (current.value !== k) {
+      res.push(current.value);
+    }
+    current = current.next;
+  }
+  return res;
+}
