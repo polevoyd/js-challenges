@@ -375,23 +375,43 @@ function mergeTwoLinkedLists(l1, l2) {
 
 
 /**
- * Given an array of integers nums, write a method that returns the 
+ * Given an array of integers nums, write a method that returns the
  * "pivot" index of this array.
 
-We define the pivot index as the index where the sum of the numbers to the 
+We define the pivot index as the index where the sum of the numbers to the
 left of the index is equal to the sum of the numbers to the right of the index.
 
-If no such index exists, we should return -1. If there are multiple pivot 
+If no such index exists, we should return -1. If there are multiple pivot
 indexes, you should return the left-most pivot index.
 
 Example 1:
-Input: 
+Input:
 nums = [1, 7, 3, 6, 5, 6]
 Output: 3
-Explanation: 
-The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of 
+Explanation:
+The sum of the numbers to the left of index 3 (nums[3] = 6) is equal to the sum of
 numbers to the right of index 3.
 Also, 3 is the first index where this occurs.
  */
+/**
+ * Idea: 
+ *    - make two sums, left sum set to 0 and right sum of all elements
+ *    - loop through array and on each element:
+ *        - check if left sum === right sum
+ *        - substract current element from left sum and add it to right sum
+ */
+let pivotIndex = function(nums) {
 
- 
+  let sum1 = 0;
+  let sum2 = nums.reduce((accumulator, current) => accumulator += current, 0) - nums[0];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (sum1 === sum2) {
+      return i;
+    } else {
+      sum1 += nums[i];
+      sum2 -= nums[i+1];
+    }
+  }
+  return -1;
+};
