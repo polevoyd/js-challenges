@@ -167,26 +167,29 @@ class SinglyLinkedList {
     }
     return newList;
   }
+
+  // rotate list
+  
 }
 
-// let list = new SinglyLinkedList();
-// list.push('1');
-// list.push('2');
-// list.push('3');
-// list.push('4');
-// list.push('5');
-// list.push('6');
-// list.push('7');
-// list.push('8');
-// list.push('9');
-// list.push('10');
+let list = new SinglyLinkedList();
+list.push('1');
+list.push('2');
+list.push('3');
+list.push('4');
+list.push('5');
+list.push('6');
+list.push('7');
+list.push('8');
+list.push('9');
+list.push('10');
 // list.pop();
 // list.pop_front();
 // list.getNode(0);
 // list.setNode(3, 99);
 // list.insertNode(100, 1);
 // list.removeNode(2)
-// list.traverse();
+list.traverse();
 // console.log('--------------------------')
 // let reversedList = list.reverse();
 // reversedList.traverse();
