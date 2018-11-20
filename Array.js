@@ -178,10 +178,15 @@ function mergeSortedArrays(arr1, arr2) {
 }
 
 function mergeSort(arr) {
+  // если массив из 1 элемента - то не нужно дробить
   if (arr.length <= 1) return arr;
+  // если больше 1 элемента то находим середину
   let middle = Math.floor(arr.length / 2);
+  // левый массив это рекурсия к первой половине
   let left = mergeSort(arr.slice(0, middle));
+  // правый массив это рекурсия ко второй половине
   let right = mergeSort(arr.slice(middle));
+  // возвращаем соединенные левую и правую стороны
   return mergeSortedArrays(left, right);
 }
 
