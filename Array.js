@@ -124,7 +124,7 @@ var dominantIndex = function(nums) {
       largestIndex = i;
     }
   }
-  
+
   for (let i = 0 ; i < nums.length; i++) {
     if ((nums[i] + nums[i] > largest) && (i !== largestIndex)) {
       return -1;
@@ -133,3 +133,4 @@ var dominantIndex = function(nums) {
 
   return largestIndex;
 };
+
