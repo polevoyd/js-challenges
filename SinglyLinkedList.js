@@ -168,8 +168,29 @@ class SinglyLinkedList {
     return newList;
   }
 
-  // rotate list
-  
+  // rotate list in N time and 1 space
+  rotate(steps) {
+    if (this.length <= 1) return this;
+    if (steps <= this.length) return this;
+
+    let current = this.head;
+    let index = 1;
+
+    // make is circular and change links
+    // to be head at steps index
+    // and tail before
+    this.tail.next = this.head;
+
+    while (index !== steps) {
+      current = current.next;
+      index++;
+    }
+
+    this.tail = current;
+    this.head = current.next;
+    current.next = null;
+  }
+
 }
 
 let list = new SinglyLinkedList();
@@ -189,6 +210,7 @@ list.push('10');
 // list.setNode(3, 99);
 // list.insertNode(100, 1);
 // list.removeNode(2)
+list.rotate(5);
 list.traverse();
 // console.log('--------------------------')
 // let reversedList = list.reverse();
