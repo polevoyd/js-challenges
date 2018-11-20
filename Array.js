@@ -135,9 +135,42 @@ var dominantIndex = function(nums) {
 };
 
 function mergeSortedArrays(arr1, arr2) {
-  
+
+  let sorted = [];
+  if (arr1.length === 0) return arr2;
+  if (arr2.length === 0) return arr1;
+
+  let firstPointer = 0;
+  let secondPointer = 0;
+
+  // пока не все элементы добавлены
+  while (sorted.length !== arr1.length + arr2.length) {
+
+    // если оба живы то сравнить
+    if ((arr1[firstPointer]) && (arr2[secondPointer])) {
+
+      // сравнить и добавить меньший + передвинуть указатель
+      if (arr1[firstPointer] < arr2[secondPointer]) {
+        sorted.push(arr1[firstPointer]);
+        firstPointer++;
+      } else {
+        sorted.push(arr2[secondPointer]);
+        secondPointer++;
+      }
+
+    } else if (arr1[firstPointer]) {
+
+      sorted.push(arr1[firstPointer]);
+      firstPointer++;
+
+    } else if (arr2[secondPointer]) {
+
+      sorted.push(arr2[secondPointer]);
+      secondPointer++;
+
+    }
+  }
+  return sorted;
 }
 
-mergeSort(arr) {
-
-}
+console.log(mergeSortedArrays([1,2,4,5], [6,8,9,14]));
