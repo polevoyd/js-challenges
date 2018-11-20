@@ -134,6 +134,7 @@ var dominantIndex = function(nums) {
   return largestIndex;
 };
 
+// merge function
 function mergeSortedArrays(arr1, arr2) {
 
   let sorted = [];
@@ -171,6 +172,14 @@ function mergeSortedArrays(arr1, arr2) {
     }
   }
   return sorted;
+}
+
+mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let middle = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, middle));
+  let right = mergeSort(arr.slice(middle));
+  return mergeSortedArrays(left, right);
 }
 
 console.log(mergeSortedArrays([1,2,4,5], [6,8,9,14]));
