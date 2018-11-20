@@ -77,7 +77,7 @@ numbers to the right of index 3.
 Also, 3 is the first index where this occurs.
  */
 /**
- * Idea: 
+ * Idea:
  *    - make two sums, left sum set to 0 and right sum of all elements
  *    - loop through array and on each element:
  *        - check if left sum === right sum
@@ -97,4 +97,39 @@ let pivotIndex = function(nums) {
     }
   }
   return -1;
+};
+
+/**
+ * n a given integer array nums, there is always exactly one largest element.
+
+Find whether the largest element in the array is at least twice as much as every other number in the array.
+
+If it is, return the index of the largest element, otherwise return -1.
+
+Example 1:
+
+Input: nums = [3, 6, 1, 0]
+Output: 1
+Explanation: 6 is the largest integer, and for every other number in the array x,
+6 is more than twice as big as x.  The index of value 6 is 1, so we return 1.
+ */
+
+var dominantIndex = function(nums) {
+  let largest = -Infinity;
+  let largestIndex = -1;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > largest) {
+      largest = nums[i];
+      largestIndex = i;
+    }
+  }
+  
+  for (let i = 0 ; i < nums.length; i++) {
+    if ((nums[i] + nums[i] > largest) && (i !== largestIndex)) {
+      return -1;
+    }
+  }
+
+  return largestIndex;
 };
