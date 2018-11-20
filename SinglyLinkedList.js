@@ -171,7 +171,7 @@ class SinglyLinkedList {
   // rotate list in N time and 1 space
   rotate(steps) {
     if (this.length <= 1) return this;
-    if (steps <= this.length) return this;
+    if (steps >= this.length) return this;
 
     let current = this.head;
     let index = 1;
@@ -210,7 +210,7 @@ list.push('10');
 // list.setNode(3, 99);
 // list.insertNode(100, 1);
 // list.removeNode(2)
-list.rotate(5);
+list.rotate(2);
 list.traverse();
 // console.log('--------------------------')
 // let reversedList = list.reverse();
