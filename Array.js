@@ -174,7 +174,7 @@ function mergeSortedArrays(arr1, arr2) {
   return sorted;
 }
 
-mergeSort(arr) {
+function mergeSort(arr) {
   if (arr.length <= 1) return arr;
   let middle = Math.floor(arr.length / 2);
   let left = mergeSort(arr.slice(0, middle));
@@ -182,4 +182,4 @@ mergeSort(arr) {
   return mergeSortedArrays(left, right);
 }
 
-console.log(mergeSortedArrays([1,2,4,5], [6,8,9,14]));
+console.log(mergeSort([1,24,5,1,6,2,3,4,5,6,2,7,3,8,5,85,94,2,366,743,2,5,53,673,8,8,99,7]));
