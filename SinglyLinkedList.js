@@ -210,7 +210,7 @@ list.push('10');
 // list.setNode(3, 99);
 // list.insertNode(100, 1);
 // list.removeNode(2)
-list.rotate(2);
+list.rotate(5);
 list.traverse();
 // console.log('--------------------------')
 // let reversedList = list.reverse();
