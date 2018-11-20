@@ -134,3 +134,10 @@ var dominantIndex = function(nums) {
   return largestIndex;
 };
 
+function mergeSortedArrays(arr1, arr2) {
+  
+}
+
+mergeSort(arr) {
+
+}
