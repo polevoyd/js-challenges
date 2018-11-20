@@ -134,7 +134,10 @@ var dominantIndex = function(nums) {
   return largestIndex;
 };
 
-// merge function
+/**
+ * Merge sort
+ */
+
 function mergeSortedArrays(arr1, arr2) {
 
   let sorted = [];
