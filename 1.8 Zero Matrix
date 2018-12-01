@@ -1,0 +1,32 @@
+/*
+Zero Matrix: Write a space efficient algorithm, such that if an element in MxN is 0, 
+the entire row and column containing it are 0.
+*/
+
+const zeroMatrix = (m) => {
+
+  const zeros = {};
+  for (let i in m) {
+    for (let ii in m[i]) {
+      if (m[i][ii] === 0) {
+        if (!zeros[i]) {
+          zeros[i] = 1;
+        }
+        if (!zeros[ii]) {
+          zeros[i] = 1;
+        }
+      }
+    }
+  }
+
+  // changing rows and colums to zeros
+  for (let i in m) {
+    for (let ii in m[i]) {
+      if (zeros[i])   m[i][ii] = 0;
+      if (zeros[ii])  m[i][ii] = 0;
+    }
+  }
+  
+  return m
+}
+
