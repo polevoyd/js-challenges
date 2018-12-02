@@ -26,3 +26,6 @@ const flipMatrix = matrix => (
     matrix.map(row => row[index])
   ))
 );
+
+// and like that 
+rotateImage = a => a.map((row, rowIndex) => a.map(val => val[rowIndex]).reverse())
