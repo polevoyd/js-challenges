@@ -35,6 +35,20 @@ class List {
   }
 
   //-----------------------------------------------
+  // push_front
+  //-----------------------------------------------
+
+  push_front(value) {
+    if (!value) return this;
+    if (this.length === 0) this.push(value);
+
+    let newNode = new Node(value);
+    newNode.next = this.head;
+    this.head = newNode;
+    return this;
+  }
+
+  //-----------------------------------------------
   // pop_front
   //-----------------------------------------------
 
@@ -114,24 +128,6 @@ class List {
 
 }
 
-let list = new List();
-list.push(7);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(2);
-list.push(6);
-list.push(7);
-list.push(3);
-list.push(9);
-
-let list2 = new List();
-list.push(7);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(6);
-list.push(9);
 
 
 /**
@@ -227,3 +223,58 @@ const deleteMiddleNode = (l,n) => {
   return l;
 }
 
+/*
+Partition:
+Write code to partition linked list around a value x, such that
+nodes less than x come before all the nodes greater than or equal to x.
+If x is in the list, the values of x only need to be after the elements less
+than x.
+Example
+3-->5-->8-->5-->10-->2-->1 (x = 5)
+3-->1-->2-->5-->5-->10-->8
+*/
+
+const partition = (l, x) => {
+
+  if (l.length === 0) return l;
+  if (l.length === 1) return l;
+  
+  // create a new list
+  // and fill it with all X nodes
+  let r = new List();
+  let c = l.head;
+  
+  while (c) {
+    if (c.value === x) r.push(c.value)
+    c = c.next;
+  }
+
+  // if list is empty - no x present
+  if (r.length === 0) return l;
+
+  // if value < x   - add to front
+  // if value > x   - add to back
+  // if value === x - skip
+  let cc = l.head;
+  while (cc) {
+    if (cc.value < x) r.push_front(cc.value);
+    if (cc.value > x) r.push(cc.value);
+    cc = cc.next;
+  }
+  return r;
+}
+
+
+
+let list = new List();
+list.push(3);
+list.push(5);
+list.push(8);
+list.push(5);
+list.push(10);
+list.push(2);
+list.push(1);
+
+list.traverse();
+partition(list, 5).traverse();
+// list.traverse();
