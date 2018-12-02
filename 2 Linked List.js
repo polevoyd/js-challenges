@@ -209,3 +209,21 @@ const returnKthToLast = (l, k) => {
 
 // list.traverse();
 // returnKthToLast(list, 2)
+
+/**
+ * Delete middle node: 
+ * Implement an algorithm to delete a node in the middle of a singly linked list. 
+ * We are given pointer to that node. 
+ * Note: We are not given a pointer to the head of the LL
+ */
+
+const deleteMiddleNode = (l,n) => {
+  // copy next node to current 
+  // and remove next one
+  if (!n || !n.next) return null;
+  let current = n;
+  n.value = n.next.value;
+  n.next  = n.next.next;
+  return l;
+}
+
