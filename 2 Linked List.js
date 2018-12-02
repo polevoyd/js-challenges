@@ -1,11 +1,7 @@
 /**
- * Remove duplicates: Given an unsorted linked list, remove the duplicates from it.
- */
-
-/**
  *  Linked List Class
  */
-// Node
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -13,13 +9,14 @@ class Node {
   }
 }
 
-// List
+
 class List {
   constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
+
   //-----------------------------------------------
   // push
   //-----------------------------------------------
@@ -138,8 +135,9 @@ list.push(9);
 
 
 /**
- * Remove Duplicates
+ * Remove duplicates: Given an unsorted linked list, remove the duplicates from it.
  */
+
 const removeDuplicates = ll => {
   if (ll.length === 1) return ll;
   if (ll.length = 0) return ll;
@@ -147,7 +145,6 @@ const removeDuplicates = ll => {
   const m = {};
   let current = ll.head;
   let index = 0;
-
   while (current) {
     if (!m[current.value]) {
       m[current.value] = 1;
@@ -163,7 +160,6 @@ const removeDuplicates = ll => {
 const removeDuplicatesInPlace = l => {
   if (l.length === 0) return null;
   if (l.length === 1) return l;
-
   let m = {};
   m[l.head] = 1;
   let i = 1;
@@ -185,6 +181,31 @@ const removeDuplicatesInPlace = l => {
 }
 // list.traverse()
 // removeDuplicates(list).traverse()
-
 // list.traverse();
 // removeDuplicatesInPlace(list).traverse();
+
+/**
+ * Return kth to the last: Implement an algorithm to find the kth to last element of a singly linked list
+ */
+
+const returnKthToLast = (l, k) => {
+  if (l.length === 0) return null;
+  let i = 0;  
+  let current = l.head;
+  while (current) {
+    current = current.next;
+    i++;
+  }
+  // i - length of l
+  if (k > l) return null;
+  let rt = 0;
+  let current2 = l.head;
+  while (rt !== i-k-1) {
+    current2 = current2.next;
+    rt++;
+  }
+  return current2;
+}
+
+// list.traverse();
+// returnKthToLast(list, 2)
