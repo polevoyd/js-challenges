@@ -403,3 +403,30 @@ list2.push(3);
 // console.assert(isListPalindrome(new List(), new List()) === true, '#3 failed')
 
 
+/*
+  Intersection: Given 2 singly linked lists, determine if the two lists intersect. Return the   intersecting node.
+  Note that the intersection is based on the reference and not the value.
+*/
+
+const intersection = (l, ll) => {
+
+  // create a hash table and keep Nodes in there
+  // then go through second list and check if nodes already in a table
+  // if yes - then intersect, return that node
+}
+
+/*
+  Loop Detection
+  Problem : Determine if a linkedlist has a loop. If it has a loop, find the start of loop.
+  Approach : Floyd's Cycle Finding Algo
+*/
+
+const loopDetection = (l) => {
+
+  // use slow pointer and fast pointer and make them run in a loop
+  // slow moving 1 step, fast moving 2 steps
+  //--------------------------------------------------------------
+  // use hashmap??? basically, collision mean duplicate in a LL
+  // so we can just find it with a hashmaps
+}
+
