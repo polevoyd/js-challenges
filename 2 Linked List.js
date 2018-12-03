@@ -371,4 +371,34 @@ list2.push(5);
 const s = sumListsReverseOrder(list, list2);
 // console.log(list)
 
+/**
+Palindrome: Implement a function to check if a linked list is a palindrome
+Approach : Use 2 pointers: left and right
+Recursively call the function until right reaches the end
+Compare left and right pointers
+Move left ahead and right backwards
+Can also be done iteratively using a stack or reversing the linked list
+ */
+
+const isListPalindrome = (l1, l2) => {
+  return l1 === l2.reverse()
+}
+
+
+let list = new List();
+list.push(3);
+list.push(5);
+list.push(7);
+list.push(9);
+
+let list2 = new List();
+list2.push(9);
+list2.push(7);
+list2.push(5);
+list2.push(3);
+
+// console.assert(isListPalindrome(list, list2) === true,            '#1 failed')
+// console.assert(isListPalindrome('fwf', 'f') === false,            '#2 failed')
+// console.assert(isListPalindrome(new List(), new List()) === true, '#3 failed')
+
 
