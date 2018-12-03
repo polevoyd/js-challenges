@@ -380,6 +380,7 @@ Move left ahead and right backwards
 Can also be done iteratively using a stack or reversing the linked list
  */
 
+
 const isListPalindrome = (l1, l2) => {
   return l1 === l2.reverse()
 }
