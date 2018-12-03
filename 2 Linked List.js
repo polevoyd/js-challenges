@@ -39,12 +39,19 @@ class List {
   //-----------------------------------------------
 
   push_front(value) {
-    if (!value) return this;
-    if (this.length === 0) this.push(value);
-
+    if (value === null) return this;
+    
     let newNode = new Node(value);
-    newNode.next = this.head;
-    this.head = newNode;
+
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+
+    this.length++;
     return this;
   }
 
@@ -115,7 +122,6 @@ class List {
 
   traverse() {
     if (this.length === 0) return null;
-    if (this.length === 1) return this.head.value;
 
     let s = [];
     let current = this.head;
@@ -124,6 +130,24 @@ class List {
       current = current.next;
     }
     console.log(s)
+  }
+
+  //-----------------------------------------------
+  // reverse
+  //-----------------------------------------------
+
+  reverse() {
+    if (this.length === 0) return null;
+    if (this.length === 1) return this;
+
+    let reversed = new List();
+    let c = this.head;
+
+    while (c) {
+      reversed.push_front(c.value);
+      c = c.next;
+    }
+    return reversed;
   }
 
 }
@@ -238,7 +262,7 @@ const partition = (l, x) => {
 
   if (l.length === 0) return l;
   if (l.length === 1) return l;
-  
+
   // create a new list
   // and fill it with all X nodes
   let r = new List();
@@ -264,17 +288,87 @@ const partition = (l, x) => {
   return r;
 }
 
+/**
+ * Sum lists: You have two numbers represented by linked list, where each node contains a single digit. Digits are stored in reverse order.(1's digit is at the head). Write a function that adds two such numbers and returns a number in similar list format. 
+ * example:
+ * 7-->1-->6 + 5-->9-->2 = 2-->1-->9
+ * which is (617 + 295  = 912)
+ * What if digits are not stored in reverse order(i.e 1's digit is at tail
+ * (6--1-->7) + (2-->9-->5) = (9-->1-->2)
+ */
+
+
+  /**
+ * Walk through both lists in step summing each digit. Where the sum is greater
+ * than 10 then maintain a carry value. Where one list is longer than the other
+ * then copy the rest of the digits across adding any carry values.
+ *
+ * N = max(|list1|, |list2|)
+ * Time: O(N)
+ * Additional space: O(N) - algorithm doesn't require additional storage in
+ * general, additional space is used to create the new list.
+ */
+
+// took from careercup repo
+
+const sumListsReverseOrder = (list1, list2) => {
+  let head = { next: null }, // pseudo node
+    tail = head,
+    carry = 0,
+    node1 = list1,
+    node2 = list2,
+    sum;
+
+  while (node1 && node2) {
+    sum = node1.value + node2.value + carry;
+    if (sum >= 10) {
+      carry = 1;
+      sum -= 10;
+    }
+    else {
+      carry = 0;
+    }
+    tail = tail.next = new Node(sum)
+    node1 = node1.next;
+    node2 = node2.next;
+  }
+
+  node1 = node1 || node2; // go through whatever is remaining of the longer list
+  while (node1) {
+    sum = node1.value + carry;
+    if (sum >= 10) {
+      carry = 1;
+      sum -= 10;
+    }
+    else {
+      carry = 0;
+    }
+    tail = tail.next = new Node(sum)
+    node1 = node1.next;
+  }
+
+  if (carry > 0) { // check for any remaining carry
+    tail.next = new Node(carry)
+  }
+
+  return head.next;
+}
+
 
 
 let list = new List();
 list.push(3);
 list.push(5);
 list.push(8);
-list.push(5);
-list.push(10);
-list.push(2);
-list.push(1);
 
-list.traverse();
-partition(list, 5).traverse();
+let list2 = new List();
+list2.push(5);
+list2.push(1);
+list2.push(2);
+list2.push(5);
+
 // list.traverse();
+const s = sumListsReverseOrder(list, list2);
+// console.log(list)
+
+
