@@ -1,0 +1,34 @@
+/*
+  3.1
+  Three in one: Describe how you could use a single array to implement three stacks
+*/
+// 1
+// Use one array and use indexes to place stack elements. (currentInd1,2,3 etc)
+// First stack item will be 0, second at 1, third at 3 and then repeat every 3 elements
+
+//-----------------------------------------------------------------------------------------
+
+/*
+  3.2
+  Stack Min: 
+  How would you design a stack which, in addition to push and pop, has a function min that 
+  returns the minimum element? Push, pop and min should operate in O(1) time
+*/
+// 1
+// Store min in a variable inside and check for a new min on a push
+// (can't know min after pop()) 
+
+// 2
+// Store array of mins inside, push there elements that are min on each state
+
+//-----------------------------------------------------------------------------------------
+
+/*
+  3.3
+  Stack of plates: Imagine a stack of plates. If the stack gets too high, it might topple.
+  Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
+  threshold. Implement a data structure setOfStacks that mimics this. setOfStacks must be composed
+  of several stacks and could create a new stack once the previous one exceeds the capacity.
+  setOfStacks.push() and setOfStacks.pop() should behave identically to a single stack
+*/
+
