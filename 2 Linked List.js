@@ -409,10 +409,19 @@ list2.push(3);
 */
 
 const intersection = (l, ll) => {
-
+  // 1
   // create a hash table and keep Nodes in there
   // then go through second list and check if nodes already in a table
   // if yes - then intersect, return that node
+  
+  // 2
+  // if they ends on a same node:
+  //    a - traverse backwards to see where splits
+  //    b - cut extra nodes so lists will be same length
+  //      - set two pointers at start of lists
+  //      - traverse until pointers meet each other
+  //      - return that node
+  
 }
 
 /*
@@ -422,11 +431,15 @@ const intersection = (l, ll) => {
 */
 
 const loopDetection = (l) => {
-
-  // use slow pointer and fast pointer and make them run in a loop
-  // slow moving 1 step, fast moving 2 steps
-  //--------------------------------------------------------------
-  // use hashmap??? basically, collision mean duplicate in a LL
+  // 1
+  // Use hashmap. Collision mean duplicate in a list
   // so we can just find it with a hashmaps
+  
+  // 2
+  // use slow and fast pointer to determine if there is a circle
+  // start pointers slow and fast
+  // once they meet - move slow to head, keep fast on same place
+  // move both at rate of 1 step
+  // when they meet - return that node
 }
 
