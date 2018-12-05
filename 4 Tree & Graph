@@ -1,3 +1,5 @@
+
+// traversals: 
 // pre-order
 
 var preorderTraversal = function(root) {
@@ -41,6 +43,37 @@ var postorderTraversal = function(root) {
     traverse(root)
     return r
 };
+
+//-----------------------------------------------------------------------------------------
+
+// Maximum Depth of Binary Tree
+
+var maxDepth = (root) => {
+    // if root dead - height is 0
+    if(!root) return 0;
+    
+    // if not, then start to count
+    const heights = [];
+    
+    // passing node and a height to keep it persistent
+    const traverse = (node, height) => {
+        
+        // if both dead - return current height
+        if (!node.left && !node.right) return heights.push(height);
+        
+        // if left alive - dive in it and pass height + 1
+        if(node.left) traverse(node.left, height + 1);
+        
+        // if right alive - dive in it and pass height + 1
+        if(node.right) traverse(node.right, height + 1);
+    }
+    
+    // start with 1
+    traverse(root, 1)
+    
+    // return max number heights array
+    return Math.max(...heights);
+}
 
 //-----------------------------------------------------------------------------------------
 /*
