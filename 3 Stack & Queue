@@ -70,32 +70,67 @@
 
 
 //-----------------------------------------------------------------------------------------
-
-
-
-//-----------------------------------------------------------------------------------------
-
-
-
-//-----------------------------------------------------------------------------------------
-
+/*
+Minimal Tree: Given a sorted array with unique integer elements, write an algorithm to create a 
+binary search tree with minimal height.
+*/
 
 
 //-----------------------------------------------------------------------------------------
 
+/*
+List of depths: Given a binary tree, design an algorithm which creates a linked list
+of all the nodes at each depth (i.e. if you have a tree with depth D, you will have D linked lists)
+*/
+
+//-----------------------------------------------------------------------------------------
+/*
+Check Balanced: Implement a function to check if a binary function is
+balanced or not. 
+A balanced tree is defined to be a tree such that the difference in the heights
+between the two subtrees of a node is never greater than one
+*/
+
+
+//-----------------------------------------------------------------------------------------
+/*
+Valid BST:  Implement a function to check if a binary tree is a binary search tree
+BST: left <= current < right
+*/
 
 
 //-----------------------------------------------------------------------------------------
 
+/*
+Successor : Write an algorithm to find the next node(i.e. inorder successor) of a given node 
+in a binary search tree. You may assume that each node has a link to its parent node
+Approach : If a right node exists, return the left most node in the right sub tree
+else, go to the parent until the child is a left child of the parent
+*/
+
+//-----------------------------------------------------------------------------------------
+/*
+Build Order: You are given a list of projects and a list of dependencies (which is a list of pair of projects, where
+the second project is dependent on the first). All of a project's dependencies must be built before the project is.
+Find a build order that will allow the projects to be built. If there is no valid order, return an error.
+*/
 
 
 //-----------------------------------------------------------------------------------------
 
-
+/*
+First common ancestor : Design an algorithm and write a code to find the first common ancestor of two
+nodes in a binary tree. Avoid storing additional nodes in a data structure.
+Note : This is not necessarily a binary search tree
+*/
 
 //-----------------------------------------------------------------------------------------
 
-
+/*
+BST Sequences: A binary search tree was created by tranversing an array from left to right
+and inserting each element.Given a binary search tree with distinct elements, print all possible
+arrays that could have led to this tree.
+*/
 
 
 
