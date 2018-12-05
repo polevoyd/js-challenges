@@ -32,15 +32,40 @@
   setOfStacks.push() and setOfStacks.pop() should behave identically to a single stack
 */
 
-//-----------------------------------------------------------------------------------------
-
-
-
-//-----------------------------------------------------------------------------------------
-
-
+// Use one array and control current amount of elements and locations with index pointers
+// Or use previous approach (with pointers on 1,2,3 jump to each 3rd element representing stack)
 
 //-----------------------------------------------------------------------------------------
+/*
+  Queue via Stacks: Implement a queue using stacks
+*/
+
+// 1
+// Use two stacks and on each pop():
+//  - Put all elements into a second stack and return one on top
+//  - Then return all the elements into a first stack back
+
+// 2
+// ?
+
+//-----------------------------------------------------------------------------------------
+/*
+  Sort Stacks: Write a program to sort a stack such that the smallest item is on the top.You can use
+  an additional temporary stack but you may not copy the elements into any other data structure.
+  The stack supports the following operations : push, pop, peek and isEmpty
+*/
+
+// 1
+// Taking one item from a stack - 'a'
+// Then do a variation of insertion sort:
+// Pop out elements to find a right place for 'a'
+// Keep elements in another stack meanwhile 
+
+//-----------------------------------------------------------------------------------------
+/*
+  Route between nodes: Given a directed graph, design an algorithm to find out whether there is a route
+  between two nodes.
+*/
 
 
 
