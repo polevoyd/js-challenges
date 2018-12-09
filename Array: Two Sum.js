@@ -9,6 +9,9 @@
     You may assume that each input would have exactly one solution, and you may not use the same element twice.
 */
 
+// Time:    N 
+// Space:   N
+
 const twoSum = function(nums, target) {
     // создаем пустой массив
     const m = {};
