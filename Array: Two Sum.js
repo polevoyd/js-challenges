@@ -27,3 +27,18 @@ const twoSum = function(nums, target) {
     }
 };
 
+const twoSum = function(nums, target) {
+    
+    // создаем таблицу и добавляем в нее каждый элемент
+    // попутно проверяя если в таблице есть остаток (target - element)
+    // если есть - то возвращаем
+    
+    const m = {};
+    
+    for (let i in nums) {
+        if (m[target - nums[i]] >= 0) {
+            return [m[target - nums[i]], i]
+        }
+        m[nums[i]] = i
+    }
+};
