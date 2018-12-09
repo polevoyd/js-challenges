@@ -30,3 +30,34 @@ var maxProfit = function(prices) {
     
     return profit;
 };
+
+//------------------------------------------------------------------------
+var maxProfit = function(prices) {
+    
+    // Проходим через массив и 
+    // отслеживаем минимум и потенциальную прибыль для каждого элемента
+    // если элемент просто меньше - то обновляем минимум
+    // НО если элемент - минимум больше текущей прибыли,
+    // тогда обновляем новую прибыль
+    // (это не может происходить одновременно для одного элемента)
+    // Time : N
+    // Space: 1
+    
+    let minimum = Infinity;
+    let profit = 0;
+    
+    for (let i = 0; i < prices.length; i++) {
+        
+        if (prices[i] < minimum) {
+            
+            minimum = prices[i];
+            
+        } else if (prices[i] - minimum > profit) {
+            
+            profit = prices[i] - minimum;
+             
+        }
+    }
+    
+    return profit
+};
