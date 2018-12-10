@@ -15,3 +15,19 @@ var containsDuplicate = function(nums) {
     // Space: N
     return nums.length !== new Set(nums).size
 };
+
+var containsDuplicate = function(nums) {
+    // Создать таблицу и добавлять элементы туда
+    // попутно проверяя если они там уже есть
+    // Time: N
+    // Space: N
+    
+    let m = new Map();
+    
+    for (let i of nums) {
+        if (m.has(i)) return true
+        m.set(i, 1)
+    }
+    
+    return false;
+};
