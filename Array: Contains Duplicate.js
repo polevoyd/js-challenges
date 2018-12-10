@@ -11,5 +11,7 @@ Your function should return true if any value appears at least twice in the arra
 var containsDuplicate = function(nums) {
     // просто создать сет с уникальными значениями
     // и сравнить размер
+    // Time: N
+    // Space: N
     return nums.length !== new Set(nums).size
 };
