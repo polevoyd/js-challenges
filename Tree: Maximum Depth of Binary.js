@@ -21,6 +21,5 @@ var maxDepth = (root) => {
     
     // if root not alive - return 0
     if (!root) return 0;
-    a
     return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
 }
