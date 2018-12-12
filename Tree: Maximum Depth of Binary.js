@@ -20,6 +20,9 @@ Note: A leaf is a node with no children.
 var maxDepth = (root) => {
     
     // if root not alive - return 0
-    if (!root) return 0;
-    return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    // if (!root) return 0;
+    // return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    
+
+    return !root ? 0 : Math.max(maxDepth(root.right), maxDepth(root.left)) + 1
 }
