@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode}
+ */
+var invertTree = function(root) {
+    
+    // default check for null node
+    if (!root) return null
+    
+    // imitating a queue
+    let queue = [];
+    
+    // adding node to queue
+    queue.unshift(root);
+    
+    // while queue is not empty
+    while (queue.length > 0) {
+        
+        // pop out current node and swap its subtrees
+        let current = queue.pop();
+    
+        let temp = current.left;
+        current.left = current.right;
+        current.right = temp;
+        
+        // then moving to others, skipping null nodes
+        if (current.left !== null) queue.unshift(current.left);
+        if (current.right !== null) queue.unshift(current.right);
+    }
+    
+    return root;
+};
