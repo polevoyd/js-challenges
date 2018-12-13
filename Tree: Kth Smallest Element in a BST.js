@@ -57,3 +57,28 @@ const visit = (node, a) => {
     a.push(node.val)
     if (node.right) visit(node.right, a)
 }
+
+//---------------------------------------------------------------------
+// little bit more optimized version:
+// checking array size and if its K
+// then stop recursion
+
+var kthSmallest = function(root, k) {
+    if (!root) return nul
+    // inorder traversal will be a sorted array
+    // then we just need to pick K - 1 element from it
+    
+    let a = [];
+    visit(root, a); 
+    return a[k-1];
+};
+
+// picking inorder values into array
+const visit = (node, a, k) => {
+    if (!node) return null
+    if (a.length === k) return null;
+    
+    if (node.left) visit(node.left, a, k)
+    a.push(node.val)
+    if (node.right) visit(node.right, a, k)
+}
