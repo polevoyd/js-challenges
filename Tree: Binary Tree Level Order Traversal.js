@@ -71,3 +71,30 @@ var levelOrder = function(root) {
     
     return levels;
 };
+
+// simpler solution ----------------------------------------------------------------------------------------------
+
+let levelOrder = function(root) {
+    // creating arr to store result
+    let result = [];
+    
+    // traversing, passing root, array to fill and starting level
+    traverse(root, arr, 0);
+    
+    // returning array
+    return arr;
+};
+
+const traverse = (root, arr, level) => {
+    if (!root) return null;
+    
+    // if current level not exist - create it
+    if (!arr[level]) arr[level] = [];
+    
+    // push node to array
+    arr[level].push(root.val);
+    
+    // repeat process on left and right node, with same array and + 1 to level
+    traverse(root.left, arr, level + 1)
+    traverse(root.right, arr, level + 1)
+}
