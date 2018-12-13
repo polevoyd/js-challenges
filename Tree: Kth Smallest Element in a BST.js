@@ -43,11 +43,11 @@ What if the BST is modified (insert/delete operations) often and you need to fin
 var kthSmallest = function(root, k) {
     if (!root) return nul
     // inorder traversal will be a sorted array
-    // then we just need to pick K first elements from it
+    // then we just need to pick K - 1 element from it
     
     let a = [];
     visit(root, a); 
-    return a.slice(0, k)  
+    return a[k-1];
 };
 
 // picking inorder values into array
