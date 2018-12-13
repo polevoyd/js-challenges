@@ -68,3 +68,17 @@ var lowestCommonAncestor = function(root, p, q) {
         return root;
     }
 };
+
+//-------------------------------------------------------------------------
+// shorter, same idea
+
+var lowestCommonAncestor = function(root, p, q) {
+    
+    // if both p and q less than root - go left
+    // if both p and q greater than root - go right
+    // any other case -return root - we find it
+    
+    if (root.val > p && root.val > q) lowestCommonAncestor(root.left, p, q)
+    if (root.val < p && root.val < q) lowestCommonAncestor(root.right, p, q)
+    else return root
+};
