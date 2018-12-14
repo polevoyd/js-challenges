@@ -21,7 +21,7 @@ var levelOrder = function(root) {
     // while queue not empty
     while (queue.length > 0) {
         
-        // pop node from queue and add it to queue
+        // pop node from queue and add it to visited
         let current = queue.pop();
         visited.push(current.val)
         
