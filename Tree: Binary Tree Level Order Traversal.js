@@ -34,7 +34,6 @@ var levelOrder = function(root) {
     
     // creating a queue and array of visited
     let queue = [];
-    let visited = [];
     let levels = [];
     
     // adding starter root node
@@ -49,7 +48,6 @@ var levelOrder = function(root) {
         
         // pop node from queue and add it to queue
         let current = queue.pop();
-        visited.push(current.val)
         
         // then check if it has children - if yes, add them to queue
         // and push to subarray (for each level)
