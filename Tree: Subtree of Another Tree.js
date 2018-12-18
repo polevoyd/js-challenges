@@ -29,13 +29,6 @@ Return true, because t has the same structure and node values with a subtree of 
 */
 
 /*
-Solution 1: Print the inorder and preoder traversals of both the trees and see if the traversals of
-one tree are substrings in other tree's traversals.
-
-However, this solutions requires O(m+n) space where m and n are nodes in respective trees.
-If inorder and preorder traversal of the shorter tree are substrings in larger tree, then it is 
-fully contained in larger tree.
-
 Solution 2: We can check the trees node by node also if there is some logic for nodes that do not match.
 */
 
@@ -70,3 +63,40 @@ const equal = (n1, n2) => {
     
 }
 
+
+//--------------------------------------------------------------------------
+/*
+Solution 1: Print the inorder and preoder traversals of both the trees and see if the traversals of
+one tree are substrings in other tree's traversals.
+
+However, this solutions requires O(m+n) space where m and n are nodes in respective trees.
+If inorder and preorder traversal of the shorter tree are substrings in larger tree, then it is 
+fully contained in larger tree.
+*/
+
+var isSubtree = function(s, t) {
+
+    let [a, b, aa, bb] = [[],[],[],[]]
+
+    pre(t, a)
+    pre(s, b)
+    ino(t, aa)
+    ino(s, bb)
+    
+    return a.includes(b)
+}
+
+
+const pre = (node, a) => {
+    if (!node) return null    
+    a.push(node.val)
+    if (node.left)  pre(node.left, a)
+    if (node.right) pre(node.right, a)
+}
+
+const ino = (node, a) => {
+    if (!node) return null
+    if (node.left)  ino(node.left, a)
+    a.push(node.val)
+    if (node.right) ino(node.right, a)
+}
