@@ -26,8 +26,18 @@ Given tree t:
   / \
  1   2
 Return true, because t has the same structure and node values with a subtree of s.
-
 */
+
+/*
+Solution 1: Print the inorder and preoder traversals of both the trees and see if the traversals of
+one tree are substrings in other tree's traversals.
+
+However, this solutions requires O(m+n) space where m and n are nodes in respective trees.
+
+
+Solution 2: We can check the trees node by node also if there is some logic for nodes that do not match.
+*/
+
 var isSubtree = function(s, t) {
     
     // if smaller empty - true
