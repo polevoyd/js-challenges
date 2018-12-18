@@ -33,7 +33,8 @@ Solution 1: Print the inorder and preoder traversals of both the trees and see i
 one tree are substrings in other tree's traversals.
 
 However, this solutions requires O(m+n) space where m and n are nodes in respective trees.
-
+If inorder and preorder traversal of the shorter tree are substrings in larger tree, then it is 
+fully contained in larger tree.
 
 Solution 2: We can check the trees node by node also if there is some logic for nodes that do not match.
 */
