@@ -37,21 +37,31 @@ Explanation: The input is: [5,1,4,null,null,3,6]. The root node's value
              is 5 but its right child's value is 4.
 */
 
-var isValidBST = function(root) {
+var isValidBST = function(root, l, r) {
+    if (!root) return true
     
-    // Do In-Order Traversal of the given tree and store the result in a temp array.
-    // Check if the temp array is sorted in ascending order, if it is, then the tree is BST.
+    // if root value >= right OR <= left - false
+    if (root.val >= r || root.val <= l) return false
     
-    const a = [];
-    visit(root, a);
-    return a === a.sort((a, b) => a > b)
-};
-
-const visit = (node, a) => {
-    if (!node) return null
-    
-    // preorder traversal
-    if (node.left) visit(node.left, a)
-    a.push(node.val)
-    if (node.right) visit(node.right, a)
+    // else check left subtree + right subtree
+    return isValidBST(root.left, l, root.val) && isValidBST(root.right, root.val, r)
 }
+
+// var isValidBST = function(root) {
+    
+//     // Do In-Order Traversal of the given tree and store the result in a temp array.
+//     // Check if the temp array is sorted in ascending order, if it is, then the tree is BST.
+    
+//     const a = [];
+//     visit(root, a);
+//     return a === a.sort((a, b) => a > b)
+// };
+
+// const visit = (node, a) => {
+//     if (!node) return null
+    
+//     // preorder traversal
+//     if (node.left) visit(node.left, a)
+//     a.push(node.val)
+//     if (node.right) visit(node.right, a)
+// }
