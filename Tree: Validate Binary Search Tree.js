@@ -36,6 +36,11 @@ Output: false
 Explanation: The input is: [5,1,4,null,null,3,6]. The root node's value
              is 5 but its right child's value is 4.
 */
+/*
+ test for BST should check to see that all the nodes lying left to a 
+ node should be smaller than that node and the nodes to the right of 
+ a node should all be greater than that node.
+*/
 
 var isValidBST = function(root, l, r) {
     if (!root) return true
