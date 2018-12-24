@@ -45,3 +45,21 @@ const weightsInKg = weightsInPounds.map(x => convertUnits('kg', 0.45460, 0)(x))
 // with currying
 const weightsInKg = weightsInPounds.map(poundsToKg)
 // 2.27kg, 7.00kg, 4.46kg, 50.01kg
+
+// Pipeline
+// allows for easy function composition when
+// performing multiple operations on variable
+
+const pipe = functions => params => {
+  return functions.reduce((value, func) => func(value), data)
+}
+
+const cart = [3.12, 45.15, 11.01]
+const addSalesTax = (total, taxRate) => (total * taxRate) * total
+
+const tally = orders => pipe([
+  x => x.reduce((total, val) => total + val), // sum the order
+  x => addSalesTax(x, 0.09),
+  x => `Order Total = ${x.toFixed(2)}` // convert to text
+])(orders)
+// Order Total = 64.62
