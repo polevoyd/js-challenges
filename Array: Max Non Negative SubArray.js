@@ -42,4 +42,67 @@ const maxPositiveSubArray = arr => {
   return a[maxSumLongest]
 }
 
+//------------------------------------------------------------------------------------------------------------------
+const maxPositiveSubArray = A => {
+    
+        var answers = []
+        var index_begin = 0
+        var index_end = 0
+        var current_sum = 0
+        var max_sum = -Infinity
+        var max_length = 0
+        
+        
+        for (var i = 0; i < A.length; i++) {
+
+            if (A[i] >= 0) {
+
+                current_sum += A[i]
+
+            } else {
+                
+                if (current_sum > max_sum) {
+
+                    max_sum = current_sum
+                    index_end = i
+                    answers.push(A.slice(index_begin, index_end))
+                    
+                } else if (current_sum === max_sum) {
+
+                  if (index_end - index_begin > max_length) {
+                    answers.push(A.slice(index_begin, index_end))
+
+                  }
+                }
+
+                index_begin = i+1
+                index_end = i+1
+                
+            }
+        }
+
+        var longest_max_sum = []
+        
+        for (var i = 0; i < answers.length; i++) {
+            if (answers[i].length > longest_max_sum.length) 
+                longest_max_sum = answers[i]
+        }
+        
+        if (A[A.length-1] > max_sum) {
+            
+          return A[A.length-1]
+          
+        } else {
+            
+          return longest_max_sum
+          
+        }
+}
+
+maxPositiveSubArray([ 756898537, -1973594324, -2038664370, -184803526, 1424268980 ])
+maxPositiveSubArray([ 1, 2, 5, -7, 2, 5 ])
+maxPositiveSubArray([ -846930886, -1714636915, 424238335, -1649760492 ])
+
+
+
 console.log(maxPositiveSubArray([1, 2, 5, -7, 2, 4, 1, 1, -5, 1]))
