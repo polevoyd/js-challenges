@@ -103,6 +103,53 @@ maxPositiveSubArray([ 756898537, -1973594324, -2038664370, -184803526, 142426898
 maxPositiveSubArray([ 1, 2, 5, -7, 2, 5 ])
 maxPositiveSubArray([ -846930886, -1714636915, 424238335, -1649760492 ])
 
-
-
-console.log(maxPositiveSubArray([1, 2, 5, -7, 2, 4, 1, 1, -5, 1]))
+//--------------------------------------------------------------------------------------------------------
+const maxPositiveSubArray = a => {
+    
+        var maxset = null;
+        var maxsum = 0;
+        var currsum = 0;
+        var start = 0;
+        var i;
+        for( i = 0; i < a.length; i++ ) {
+            a[i] = +a[i];
+            if( a[i] > -1 ) {
+                currsum += a[i];
+               continue;
+            }
+            
+            var end = i;
+            if( !maxset || maxsum < currsum ) {
+               maxset = a.slice( start, end );
+            
+                maxsum = currsum;
+            }
+            
+            if( maxsum === currsum ) { 
+                if( end-start > maxset.length ) {
+                    maxset = a.slice( start, end );
+                    maxsum = currsum;
+                }
+            }
+            
+            currsum = 0;
+            start = end+1;
+        }
+        
+        var end = i;
+        // console.log( "|=>" , maxsum, currsum, maxset );
+            if( !maxset || maxsum < currsum ) {
+               maxset = a.slice( start, end );
+            
+                maxsum = currsum;
+            }
+            
+            if( maxsum === currsum ) { 
+                if( end-start > maxset.length ) {
+                    maxset = a.slice( start, end );
+                    maxsum = currsum;
+                }
+            }
+        
+        return maxset;
+}
