@@ -43,7 +43,7 @@ var spiralOrder = function(matrix) {
 
         if (n === 2) {
             const newArr = a.concat(m.pop().reverse())
-            const newMatrix = m.slice(0, m.length)
+            const newMatrix = m.slice(0, m.length - 1)
             return sliceMatrix(newMatrix, newArr, n + 1)
         }
         
