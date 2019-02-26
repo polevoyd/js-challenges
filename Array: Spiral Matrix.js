@@ -56,3 +56,21 @@ var spiralOrder = function(matrix) {
     
     return sliceMatrix(matrix, [], 0)
 };
+
+/* same as */
+/**
+ * @param {number[][]} matrix
+ * @return {number[]}
+ */
+var spiralOrder = function(matrix) {
+    const sliceMatrix = (m, a, n) => {
+        return ((m.length === 0) || (m[0].length === 0)) ? a :
+        (n === 0) ? sliceMatrix(m.slice(1), a.concat(m[0]), n + 1) :
+        (n === 1) ? sliceMatrix(m.map((e, i) => e.slice(0, e.length - 1)), a.concat(m.reduce((a, c) => a.concat(Array.of(c[c.length - 1])), [])), n + 1) :
+        (n === 2) ? sliceMatrix((m.slice(0, m.length - 1)), a.concat(m.pop().reverse()), n + 1) :
+        (n === 3) ? sliceMatrix(m.map((e, i) => e.slice(1)), a.concat(m.reduce((a, c) => a.concat(Array.of(c[0])), []).reverse()), 0) :
+        null
+    }
+    
+    return sliceMatrix(matrix, [], 0)
+};
