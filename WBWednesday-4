@@ -1,23 +1,22 @@
+const robHouses = (houses, cash) => {
+  const currentMax = Math.max(...houses)
+  const currentMaxIndex = houses.indexOf(Math.max(...houses))
 
-// const robHouses = (houses, cash) => {
-//   const currentMax = Math.max(...houses)
-//   const currentMaxIndex = houses.indexOf(Math.max(...houses))
+  const leftNeighbor = houses[currentMaxIndex - 1]
+  const rightNeighbor = houses[currentMaxIndex + 1]
 
-//   const leftNeighbor = houses[currentMaxIndex - 1]
-//   const rightNeighbor = houses[currentMaxIndex + 1]
+  const leftBeenRobbed = (leftNeighbor === -2 || currentMaxIndex - 1 < 0)
+  const rightBeenRobbed = (rightNeighbor === -2 || currentMaxIndex + 1 >= houses.length)
 
-//   const leftBeenRobbed = (leftNeighbor === -2 || currentMaxIndex - 1 < 0)
-//   const rightBeenRobbed = (rightNeighbor === -2 || currentMaxIndex + 1 >= houses.length)
+  const updated_houses = houses.map((e, i) => {
+    return i === currentMaxIndex - 1 || i === currentMaxIndex + 1 || e === 0 ? -1
+         : i === currentMaxIndex ? -2 : e
+  })
 
-//   const updated_houses = houses.map((e, i) => {
-//     return i === currentMaxIndex - 1 || i === currentMaxIndex + 1 || e === 0 ? -1
-//          : i === currentMaxIndex ? -2 : e
-//   })
-
-//   const updated_cash = cash + currentMax
+  const updated_cash = cash + currentMax
  
-//   return leftBeenRobbed && rightBeenRobbed ? cash >= 0 ? cash : 0 : robHouses(updated_houses, updated_cash)
-// }
+  return leftBeenRobbed && rightBeenRobbed || currentMax <= 0 ? cash >= 0 ? cash : 0 : robHouses(updated_houses, updated_cash)
+}
 
 //---------------------------------------------------
 
@@ -26,7 +25,7 @@ const robHouses = (h, c) => {
   const rR = (h[h.indexOf(Math.max(...h)) + 1] === -2 || h.indexOf(Math.max(...h)) + 1 >= h.length)
   const _h = h.map((e, i) => (i === h.indexOf(Math.max(...h)) - 1 || i === h.indexOf(Math.max(...h)) + 1 || e === 0 ? -1
     : i === h.indexOf(Math.max(...h)) ? -2 : e))
-  return lR && rR ? c >= 0 ? c : 0 : robHouses(_h, c + Math.max(...h))
+  return lR && rR || Math.max(...h) <= 0 ? c >= 0 ? c : 0 : robHouses(_h, c + Math.max(...h))
 }
 
 // robHouses([1, 20, 5, 50, 90], 0)       // 110
