@@ -19,4 +19,30 @@ let twoSum = function(nums, target) {
         return [i, k];
     }
   }
+ 
+    // Самое простое решение - для каждого елемента запускаем луп и смотрим если сумма = таргет
+    //     for (i = 0; i < nums.length; i++) {
+    //         for (k = i; k < nums.length; k++) {
+
+    //             const notSameElement = i !== k
+    //             const sum = nums[i] + nums[k]
+
+    //             if (sum === target && notSameElement) {
+    //                 return [i, k]
+    //             }
+    //         }
+    //     }
+ 
+    // --------------------------------------------------
+ 
+    // Для самых хитрых: создаем обьект где храним разницу и индекс: {таргет - текущий элемент: индекс}
+    // и делаем луп через весь массив, проверяя если уже есть такой элемент
+ 
+    // const m = {};
+    // for (let i in nums) {
+    //     if (m[target - nums[i]] >= 0) {
+    //         return [m[target - nums[i]], i]
+    //     }
+    //     m[nums[i]] = i
+    // }
 };
